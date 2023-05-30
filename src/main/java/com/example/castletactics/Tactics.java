@@ -12,7 +12,7 @@ public class Tactics extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         StackPane root = new StackPane();
-        Scene scene = new Scene(root,1000,1000);
+        Scene scene = new Scene(root,500,500);
         //css
         scene.getStylesheets().add("/style.css");
         //Scene wird erstellt
