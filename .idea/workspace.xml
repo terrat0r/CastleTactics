@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Brett_Schach_Dame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,6 +52,11 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -51,6 +71,12 @@
       <workItem from="1685443307990" duration="191000" />
       <workItem from="1685460343271" duration="64000" />
       <workItem from="1685460422232" duration="55000" />
+      <workItem from="1685608487469" duration="923000" />
+      <workItem from="1685610657446" duration="1065000" />
+      <workItem from="1685612678210" duration="178000" />
+      <workItem from="1685612888464" duration="502000" />
+      <workItem from="1685626572369" duration="1422000" />
+      <workItem from="1685629566296" duration="153000" />
     </task>
     <servers />
   </component>
