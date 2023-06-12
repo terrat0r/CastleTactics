@@ -4,18 +4,15 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
 public class Tactics extends Application {
     @Override
     public void start(Stage stage) {
         Group root = new Group();
-        Scene scene = new Scene(root,500,500);
+
+        Scene scene = new Scene(root);
         //css
 
         Button spielbrettBTN = new Button("Spielbrett öffnen");
@@ -27,6 +24,7 @@ public class Tactics extends Application {
         stage.setScene(scene);
         stage.setTitle("Castle Tactics");
         stage.setResizable(false);
+        //stage.setFullScreen(true);
         stage.show();
     }
 
