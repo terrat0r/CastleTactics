@@ -3,13 +3,12 @@ package com.example.castletactics;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import java.io.File;
 
 public class Spielbrett extends Tactics {
     public void start(Stage primaryStage) {
@@ -20,7 +19,7 @@ public class Spielbrett extends Tactics {
 
         // Create 64 rectangles and add to pane
         int count = 0;
-        double s = 75; // side of rectangle
+        double s = 100; // side of rectangle
         for (int i = 0; i < 8; i++) {
             count++;
             for (int j = 0; j < 8; j++) {
@@ -32,16 +31,12 @@ public class Spielbrett extends Tactics {
             }
         }
         //Figuren
-        File file1 = new File("src/main/resources/img/chess-bishop-black.jpg");
-        String tdir;
-        if(file1.exists()){
-            tdir = file1.getAbsolutePath();
-
-        Image image1 = new Image("img/chess-bishop-black.jpg");
+        Image image1 = new Image("file:./src/main/resources/img/chess-bishop-white.png");
+        System.out.println(image1.toString());
         Rectangle rekt = new Rectangle(s,s,s,s);
         ImagePattern imagePattern = new ImagePattern(image1);
         rekt.setFill(imagePattern);
-        pane.add(rekt,0,0);}
+        pane.add(rekt,1,0);
 
         pane.add(schliessenBTN, 0, 8, 2, 1);
 
