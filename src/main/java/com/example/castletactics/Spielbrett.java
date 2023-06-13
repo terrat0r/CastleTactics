@@ -36,15 +36,15 @@ public class Spielbrett extends Tactics {
         Rectangle rekt = new Rectangle(s,s,s,s);
         ImagePattern imagePattern = new ImagePattern(image1);
         rekt.setFill(imagePattern);
-        pane.add(rekt,1,0);
+        Bauer bauer1 = new Bauer();
+        pane.add(bauer1.getRect((int) s, true),1,0);
 
         pane.add(schliessenBTN, 0, 8, 2, 1);
 
         // Create a scene and place it in the stage
         Scene scene = new Scene(pane);
         primaryStage.setTitle("Castle Tactics"); // Name des pane gesetzt
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);//  scene in  primaryStage gesetzt
+        primaryStage.setScene(scene);//scene in  primaryStage gesetzt
         primaryStage.show();
 
     }
