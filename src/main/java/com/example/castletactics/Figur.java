@@ -14,11 +14,11 @@ public abstract class Figur {
 	public abstract boolean zug();
 
 	public Rectangle getRect(int s, String path){
-		Image image1 = new Image(path);
-		//System.out.println(image1.toString());
-		Rectangle rekt = new Rectangle(s,s,s,s);
+		Image image1 = new Image(path,100,150,false,false);
+		Rectangle rect = new Rectangle(s,s,s,s);
 		ImagePattern imagePattern = new ImagePattern(image1);
-		rekt.setFill(imagePattern);
-		return rekt;
+		rect.setFill(imagePattern);
+		;
+		return rect;
 	}
 }
