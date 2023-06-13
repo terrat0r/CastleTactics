@@ -36,7 +36,7 @@ public class Spielbrett extends Tactics {
         Rectangle rekt = new Rectangle(s,s,s,s);
         ImagePattern imagePattern = new ImagePattern(image1);
         rekt.setFill(imagePattern);
-        pane.add(rekt,1,0);
+        pane.add(rekt,0,0);
 
         pane.add(schliessenBTN, 0, 8, 2, 1);
 
