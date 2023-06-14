@@ -1,17 +1,19 @@
 package com.example.castletactics;
 
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class Läufer extends Figur {
-	Läufer(){
-		super(true);
+	Läufer(GridPane pane, boolean isWhite, int side, int col, int row){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-bishop-white.png" : "file:./src/main/resources/img/chess-bishop-black.png", side, col, row);
 	}
 
 	@Override
-	public boolean zug() {
-		return false;
-	}
-	public Rectangle getRect(int s, boolean black){
-		return super.getRect(s, black ? "file:./src/main/resources/img/chess-bishop-black.png" : "file:./src/main/resources/img/chess-bishop-white.png");
+	public boolean zugErlaubt(Pane pane, int col, int row) {
+
+
+		//TODO: logik einfügen
+		return true;
 	}
 }
