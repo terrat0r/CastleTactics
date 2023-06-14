@@ -73,13 +73,18 @@ public class Spielbrett extends Tactics {
             if (dragboard.hasString()) {
                 String source = dragboard.getString();
                 Rectangle draggedPiece;
-                if (source.equals("Bauers1")) {
-                    draggedPiece = bauers1Rect;
-                } else if (source.equals("Bauers2")) {
-                    draggedPiece = bauers2Rect;
-                } else {
-                    draggedPiece = null;
+                switch (source) {
+                    case "Bauers1":
+                        draggedPiece = bauers1Rect;
+                        break;
+                    case "Bauers2":
+                        draggedPiece = bauers2Rect;
+                        break;
+                    default:
+                        draggedPiece = null;
+                        break;
                 }
+
                 if (draggedPiece != null) {
                     int columnIndex = (int) Math.floor(event.getX() / bauers1Rect.getWidth());
                     int rowIndex = (int) Math.floor(event.getY() / bauers1Rect.getHeight());
@@ -92,11 +97,12 @@ public class Spielbrett extends Tactics {
             event.setDropCompleted(success);
             event.consume();
         });
+
         //Schwarze Bauern
-        //Bauer bauers1 = new Bauer();
-        //pane.add(bauers1.getRect((int) s, true),0,1);
-        //Bauer bauers2 = new Bauer();
-        //pane.add(bauers2.getRect((int) s, true),1,1);
+        /*Bauer bauers1 = new Bauer();
+        pane.add(bauers1.getRect((int) s, true),0,1);
+        Bauer bauers2 = new Bauer();
+        pane.add(bauers2.getRect((int) s, true),1,1);*/
         Bauer bauers3 = new Bauer();
         pane.add(bauers3.getRect((int) s, true),2,1);
         Bauer bauers4 = new Bauer();
@@ -168,8 +174,6 @@ public class Spielbrett extends Tactics {
         pane.add(turmw1.getRect((int) s, false),0,7);
         Turm turmw2 = new Turm();
         pane.add(turmw2.getRect((int) s, false),7,7);
-
-
 
         //Button Hauptmenü
         pane.add(schliessenBTN, 0, 8, 2, 1);
