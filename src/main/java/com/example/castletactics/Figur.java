@@ -18,7 +18,6 @@ public abstract class Figur {
 		Rectangle rect = new Rectangle(s,s,s,s);
 		ImagePattern imagePattern = new ImagePattern(image1);
 		rect.setFill(imagePattern);
-		;
 		return rect;
 	}
 }
