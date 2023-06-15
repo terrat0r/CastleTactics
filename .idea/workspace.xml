@@ -9,11 +9,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +100,7 @@
       <workItem from="1685689150229" duration="2263000" />
       <workItem from="1686580161206" duration="3639000" />
       <workItem from="1686646048213" duration="4557000" />
-      <workItem from="1686741605502" duration="12303000" />
+      <workItem from="1686741605502" duration="14768000" />
     </task>
     <task id="LOCAL-00001" summary="stuff *sinnlos*">
       <created>1686649872748</created>
@@ -114,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686649872748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="DnD eingerichtet (noch nicht ganz ausgereift)">
+      <created>1686757467475</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686757467475</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +124,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="stuff *sinnlos*" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff *sinnlos*" />
+    <MESSAGE value="DnD eingerichtet (noch nicht ganz ausgereift)" />
+    <option name="LAST_COMMIT_MESSAGE" value="DnD eingerichtet (noch nicht ganz ausgereift)" />
   </component>
 </project>

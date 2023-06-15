@@ -37,6 +37,7 @@ public abstract class Figur {
 				db.setContent(content);
 				rect.setVisible(false);
 
+
 				event.consume();
 			}
 		});
@@ -62,7 +63,7 @@ public abstract class Figur {
 				boolean success = false;
 				if (event.getGestureSource() != rect &&
 						event.getDragboard().hasImage() &&
-						zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureTarget()), GridPane.getColumnIndex((Node) event.getGestureTarget()))) {
+						zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureSource()), GridPane.getColumnIndex((Node) event.getGestureSource()))) {
 					/* allow for moving */
 					event.acceptTransferModes(TransferMode.MOVE);
 
@@ -78,8 +79,10 @@ public abstract class Figur {
 		rect.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				/* Sicht: Figur, die fallengelassen wird */
-				if(event.getGestureTarget() != null&&
-						zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureTarget()), GridPane.getColumnIndex((Node) event.getGestureTarget()))) {
+				if(event.getGestureTarget() != null
+						&& event.getGestureTarget() instanceof Node
+						&& zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureTarget()), GridPane.getColumnIndex((Node) event.getGestureTarget()))) {
+
 					int columnIndex = GridPane.getColumnIndex((Node) event.getGestureTarget()); // GestureTarget ist die Node, wo es draufgelegt wird
 					int rowIndex = GridPane.getRowIndex((Node) event.getGestureTarget());
 					pane.getChildren().remove(rect);

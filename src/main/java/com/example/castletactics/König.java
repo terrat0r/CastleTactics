@@ -2,7 +2,6 @@ package com.example.castletactics;
 
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 
 public class König extends Figur {
 	König(GridPane pane, boolean isWhite, int side, int col, int row){
@@ -11,8 +10,6 @@ public class König extends Figur {
 
 	@Override
 	public boolean zugErlaubt(Pane pane, int col, int row) {
-
-
 		//TODO: logik einfügen
 		return false;
 	}
