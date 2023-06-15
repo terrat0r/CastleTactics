@@ -14,6 +14,6 @@ public class König extends Figur {
 
 
 		//TODO: logik einfügen
-		return false;
+		return true;
 	}
 }

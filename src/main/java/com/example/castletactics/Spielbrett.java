@@ -69,81 +69,51 @@ public class Spielbrett extends Tactics {
         }
         //Figuren
 
-        //Schwarze Bauern
+        //black pawn
         Bauer bauers1 = new Bauer(pane, false, s, 0, 1);
         Bauer bauers2 = new Bauer(pane, false, s, 1, 1);
         Bauer bauers3 = new Bauer(pane, false, s, 2, 1);
-        //Schwarzer Koenig
+        Bauer bauers4 = new Bauer(pane, false, s, 3, 1);
+        Bauer bauers5 = new Bauer(pane, false, s, 4, 1);
+        Bauer bauers6 = new Bauer(pane, false, s, 5, 1);
+        Bauer bauers7 = new Bauer(pane, false, s, 6, 1);
+        Bauer bauers8 = new Bauer(pane, false, s, 7, 1);
+        //white pawn
+        Bauer bauerw1 = new Bauer(pane, true, s, 0,6);
+        Bauer bauerw2 = new Bauer(pane, true, s, 1,6);
+        Bauer bauerw3 = new Bauer(pane, true, s, 2,6);
+        Bauer bauerw4 = new Bauer(pane, true, s, 3,6);
+        Bauer bauerw5 = new Bauer(pane, true, s, 4,6);
+        Bauer bauerw6 = new Bauer(pane, true, s, 5,6);
+        Bauer bauerw7 = new Bauer(pane, true, s, 6,6);
+        Bauer bauerw8 = new Bauer(pane, true, s, 7,6);
+        //black King
         König koenigs = new König(pane, false, s, 4, 0);
-/*
-        Bauer bauers4 = new Bauer();
-        pane.add(bauers4.getRect((int) s, true),3,1);
-        Bauer bauers5 = new Bauer();
-        pane.add(bauers5.getRect((int) s, true),4,1);
-        Bauer bauers6 = new Bauer();
-        pane.add(bauers6.getRect((int) s, true),5,1);
-        Bauer bauers7 = new Bauer();
-        pane.add(bauers7.getRect((int) s, true),6,1);
-        Bauer bauers8 = new Bauer();
-        pane.add(bauers8.getRect((int) s, true),7,1);
-        //Weisse Bauern
-        Bauer bauerw1 = new Bauer();
-        pane.add(bauerw1.getRect((int) s, false),0,6);
-        Bauer bauerw2 = new Bauer();
-        pane.add(bauerw2.getRect((int) s, false),1,6);
-        Bauer bauerw3 = new Bauer();
-        pane.add(bauerw3.getRect((int) s, false),2,6);
-        Bauer bauerw4 = new Bauer();
-        pane.add(bauerw4.getRect((int) s, false),3,6);
-        Bauer bauerw5 = new Bauer();
-        pane.add(bauerw5.getRect((int) s, false),4,6);
-        Bauer bauerw6 = new Bauer();
-        pane.add(bauerw6.getRect((int) s, false),5,6);
-        Bauer bauerw7 = new Bauer();
-        pane.add(bauerw7.getRect((int) s, false),6,6);
-        Bauer bauerw8 = new Bauer();
-        pane.add(bauerw8.getRect((int) s, false),7,6);
+        //white King
+        König koenigsw = new König(pane, true, s, 4, 7);
+        //black Queen
+        Königin queens = new Königin(pane, false, s, 3, 0);
+        //white Queen
+        Königin queenw = new Königin(pane, true, s, 3, 7);
+        //black bishops
+        Läufer läufers1 = new Läufer(pane, false, s, 2,0);
+        Läufer läufers2 = new Läufer(pane, false, s, 5,0);
+        //white bishops
+        Läufer läuferw1 = new Läufer(pane, true, s, 2,7);
+        Läufer läuferw2 = new Läufer(pane, true, s, 5,7);
+        //black knight
+        Springer springers1 = new Springer(pane, false, s, 1,0);
+        Springer springers2 = new Springer(pane, false, s, 6,0);
+        //white knight
+        Springer springerw1 = new Springer(pane, true, s, 1,7);
+        Springer springerw2 = new Springer(pane, true, s, 6,7);
+        //black rook
+        Turm turms1 = new Turm(pane, false, s, 0,0);
+        Turm turms2 = new Turm(pane, false, s, 7,0);
+        //white rook
+        Turm turmw1 = new Turm(pane, true, s, 0,7);
+        Turm turmw2 = new Turm(pane, true, s, 7,7);
 
-        //Weisser Koenig
-        König koenigw = new König();
-        pane.add(koenigw.getRect((int) s, false),4,7);
-        //Schwarze Queen
-        Königin koenigins = new Königin();
-        pane.add(koenigins.getRect((int) s, true),3,0);
-        //Weisser Queen
-        Königin koeniginw = new Königin();
-        pane.add(koeniginw.getRect((int) s, false),3,7);
-        //SChwarze Laufer
-        Läufer laufers1 = new Läufer();
-        pane.add(laufers1.getRect((int) s, true),2,0);
-        Läufer laufers2 = new Läufer();
-        pane.add(laufers2.getRect((int) s, true),5,0);
-        //Weisse Laufer
-        Läufer lauferw1 = new Läufer();
-        pane.add(lauferw1.getRect((int) s, false),2,7);
-        Läufer lauferw2 = new Läufer();
-        pane.add(lauferw2.getRect((int) s, false),5,7);
-        //Schwarze Springer
-        Springer springers1 = new Springer();
-        pane.add(springers1.getRect((int) s, true),1,0);
-        Springer springers2 = new Springer();
-        pane.add(springers2.getRect((int) s, true),6,0);
-        //Weisse Springer
-        Springer springerw1 = new Springer();
-        pane.add(springerw1.getRect((int) s, false),1,7);
-        Springer springerw2 = new Springer();
-        pane.add(springerw2.getRect((int) s, false),6,7);
-        //Schwarze Tuerme
-        Turm turms1 = new Turm();
-        pane.add(turms1.getRect((int) s, true),0,0);
-        Turm turms2 = new Turm();
-        pane.add(turms2.getRect((int) s, true),7,0);
-        //Weisse Tuerme
-        Turm turmw1 = new Turm();
-        pane.add(turmw1.getRect((int) s, false),0,7);
-        Turm turmw2 = new Turm();
-        pane.add(turmw2.getRect((int) s, false),7,7);
-*/
         //Button Hauptmenü
         pane.add(schliessenBTN, 0, 8, 2, 1);
 
