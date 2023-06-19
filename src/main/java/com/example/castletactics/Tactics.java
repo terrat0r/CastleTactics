@@ -8,18 +8,24 @@ import javafx.stage.Stage;
 
 
 public class Tactics extends Application {
-    @Override
-    public void start(Stage stage) {
-        Group root = new Group();
+    Group root;
+    Scene scene;
+    Button spielbrettBTN;
 
-        Scene scene = new Scene(root);
-        //css
+    public Tactics(Spielverwaltung spv)
+    {
+        root = new Group();
+        scene = new Scene(root);
 
-        Button spielbrettBTN = new Button("Spielbrett öffnen");
-        spielbrettBTN.setOnAction(l-> new Spielbrett().start(stage));
+        spielbrettBTN = new Button("Spielbrett öffnen");
+        spielbrettBTN.setOnAction(l-> spv.fensterWechseln("Schach"));
         root.getChildren().add(spielbrettBTN);
 
         scene.getStylesheets().add("/style.css");
+    }
+    @Override
+    public void start(Stage stage) {
+
         //Scene wird erstellt
         stage.setScene(scene);
         stage.setTitle("Castle Tactics");
@@ -28,8 +34,4 @@ public class Tactics extends Application {
         stage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch();
-    }
 }

@@ -5,8 +5,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class Läufer extends Figur {
-	Läufer(GridPane pane, boolean isWhite, int side, int col, int row){
-		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-bishop-white.png" : "file:./src/main/resources/img/chess-bishop-black.png", side, col, row);
+	Läufer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-bishop-white.png" : "file:./src/main/resources/img/chess-bishop-black.png", side, col, row, spv);
 	}
 
 	@Override
