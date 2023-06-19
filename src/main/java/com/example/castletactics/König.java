@@ -11,6 +11,6 @@ public class König extends Figur {
 	@Override
 	public boolean zugErlaubt(Pane pane, int col, int row) {
 		//TODO: logik einfügen
-		return false;
+		return true;
 	}
 }
