@@ -1,22 +1,20 @@
 package com.example.castletactics;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
 
 public class Spielverwaltung extends Application{
-	private Spielbrett brett;
+	private final Spielbrett brett;
 	Stage stage;
-	Tactics tactics;
+	final Tactics tactics;
 	public Figur zumSchmeißen;
-	public Figur schmeißer;
-	private ArrayList<Figur> schwarz = new ArrayList<Figur>();
-	private ArrayList<Figur> weiss = new ArrayList<Figur>();
+	public Figur derSchmeißende;
 
 	public Spielverwaltung(){
+		ArrayList<Figur> schwarz = new ArrayList<>();
+		ArrayList<Figur> weiss = new ArrayList<>();
 		brett = new Spielbrett(schwarz, weiss, this);
 		tactics = new Tactics(this);
 
@@ -42,17 +40,15 @@ public class Spielverwaltung extends Application{
 	}
 	
 	public void zugPrüfen(){
-		if(schmeißer.zugErlaubt(schmeißer.row, schmeißer.col, zumSchmeißen.row, zumSchmeißen.col)) {
-			brett.pane.getChildren().remove(schmeißer);
-			brett.pane.add(schmeißer, zumSchmeißen.col, zumSchmeißen.row);
-			schmeißer.row = zumSchmeißen.row;
-			schmeißer.col = zumSchmeißen.col;
+		if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col)) {
+			brett.pane.getChildren().remove(derSchmeißende);
+			brett.pane.add(derSchmeißende, zumSchmeißen.col, zumSchmeißen.row);
+			derSchmeißende.row = zumSchmeißen.row;
+			derSchmeißende.col = zumSchmeißen.col;
 			zumSchmeißen.schmeißen(brett.pane);
 			//System.out.println("ja");
 		}
-		else{
-			//System.out.println("nö");
-		}
+		//System.out.println("nö");
 
 
 	}

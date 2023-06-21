@@ -1,10 +1,6 @@
 package com.example.castletactics;
 
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Rectangle;
 
 public class Bauer extends Figur {
 	Bauer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
@@ -15,7 +11,7 @@ public class Bauer extends Figur {
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
 		//TODO: logik einfügen
-		return false;
+		return true;
 	}
 
 }

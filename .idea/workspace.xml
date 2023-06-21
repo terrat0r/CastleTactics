@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="Klassen umstrukturiert">
+    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Brett_Schach_Dame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" afterDir="false" />
@@ -14,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +47,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2QVeiiezuIhNnQHeuG4W5endsA8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -62,7 +70,8 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.folding",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,7 +121,7 @@
       <workItem from="1687168605998" duration="11082000" />
       <workItem from="1687183641811" duration="187000" />
       <workItem from="1687184237693" duration="1422000" />
-      <workItem from="1687354674754" duration="3479000" />
+      <workItem from="1687354674754" duration="4597000" />
     </task>
     <task id="LOCAL-00001" summary="stuff *sinnlos*">
       <created>1686649872748</created>
@@ -142,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687177915860</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Schmeißen und ziehen Mechanik funktioniert!">
+      <created>1687358247923</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687358247923</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +169,7 @@
     <MESSAGE value="DnD eingerichtet (noch nicht ganz ausgereift)" />
     <MESSAGE value="DnD verbessert (noch nicht ganz ausgereift)" />
     <MESSAGE value="Klassen umstrukturiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Klassen umstrukturiert" />
+    <MESSAGE value="Schmeißen und ziehen Mechanik funktioniert!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Schmeißen und ziehen Mechanik funktioniert!" />
   </component>
 </project>

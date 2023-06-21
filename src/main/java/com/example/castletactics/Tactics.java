@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 
 public class Tactics extends Application {
-    Group root;
-    Scene scene;
-    Button spielbrettBTN;
+    final Group root;
+    final Scene scene;
+    final Button spielbrettBTN;
 
     public Tactics(Spielverwaltung spv)
     {

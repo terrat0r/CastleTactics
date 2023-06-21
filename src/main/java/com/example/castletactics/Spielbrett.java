@@ -1,7 +1,6 @@
 package com.example.castletactics;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.*;
@@ -13,11 +12,10 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Spielbrett extends Application {
-    private Rectangle draggedPiece;
-    GridPane pane;
-    Button schliessenBTN;
-    Scene scene;
-    private Spielverwaltung spv;
+    final GridPane pane;
+    final Button schliessenBTN;
+    final Scene scene;
+    // --Commented out by Inspection (21.06.23, 16:44):private Spielverwaltung spv;
 
     Spielbrett(ArrayList<Figur> schwarz, ArrayList<Figur> weiss, Spielverwaltung spv){
         pane = new GridPane();
@@ -31,38 +29,34 @@ public class Spielbrett extends Application {
             count++;
             for (int j = 0; j < 8; j++) {
                 Rectangle r = new Rectangle(s, s, s, s);
-                r.setOnDragOver(new EventHandler<DragEvent>() {
-                    public void handle(DragEvent event) {
-                        /* data is dragged over the target */
-                        /* accept it only if it is not dragged from the same node
-                         * and if it has a string data */
-                        if (event.getGestureSource() != r &&
-                                event.getDragboard().hasImage()) {
-                            /* allow for moving */
-                            event.acceptTransferModes(TransferMode.ANY);
-                        }
-
-                        event.consume();
+                r.setOnDragOver(event -> {
+                    /* data is dragged over the target */
+                    /* accept it only if it is not dragged from the same node
+                     * and if it has a string data */
+                    if (event.getGestureSource() != r &&
+                            event.getDragboard().hasImage()) {
+                        /* allow for moving */
+                        event.acceptTransferModes(TransferMode.ANY);
                     }
+
+                    event.consume();
                 });
-                r.setOnDragDropped(new EventHandler<DragEvent>() {
-                    public void handle(DragEvent event) {
-                        /* data is dragged over the target */
-                        /* accept it only if it is not dragged from the same node
-                         * and if it has a string data */
+                r.setOnDragDropped(event -> {
+                    /* data is dragged over the target */
+                    /* accept it only if it is not dragged from the same node
+                     * and if it has a string data */
 
-                        boolean success = false;
-                        if (event.getGestureSource() != r &&
-                                event.getDragboard().hasImage()) {
-                            /* allow for moving */
-                            event.acceptTransferModes(TransferMode.ANY);
+                    boolean success = false;
+                    if (event.getGestureSource() != r &&
+                            event.getDragboard().hasImage()) {
+                        /* allow for moving */
+                        event.acceptTransferModes(TransferMode.ANY);
 
-                            success = true;
-                        }
-                        event.setDropCompleted(success);
-
-                        event.consume();
+                        success = true;
                     }
+                    event.setDropCompleted(success);
+
+                    event.consume();
                 });
                 r.setFill(Color.rgb(243,235,215));
                 if (count % 2 == 0)

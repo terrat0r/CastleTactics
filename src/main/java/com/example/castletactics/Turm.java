@@ -1,8 +1,6 @@
 package com.example.castletactics;
 
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 
 public class Turm extends Figur {
 	Turm(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){

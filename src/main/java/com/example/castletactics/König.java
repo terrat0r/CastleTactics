@@ -1,7 +1,6 @@
 package com.example.castletactics;
 
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 public class König extends Figur {
 	König(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
