@@ -10,7 +10,7 @@ public class Königin extends Figur {
 	}
 
 	@Override
-	public boolean zugErlaubt(Pane pane, int col, int row) {
+	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
 
 
 		//TODO: logik einfügen

@@ -12,12 +12,14 @@ import javafx.scene.shape.Rectangle;
 public abstract class Figur extends Rectangle{
 	private final boolean isWhite; //blank final
 	//private Rectangle rect;
-	private int side, row, col;
+	public int side, row, col;
 	private boolean lebt;
 	private Rectangle me = this;
+	private Spielverwaltung spv;
 
 	protected Figur(GridPane pane, boolean isWhite, String path, int side, int col, int row, Spielverwaltung spv) {
 		super(side,side,side,side);
+		this.spv = spv;
 		this.isWhite = isWhite;
 		this.side = side;
 		this.col = col;
@@ -66,11 +68,11 @@ public abstract class Figur extends Rectangle{
 				if (event.getGestureSource() != me &&
 						event.getGestureSource() != this &&
 						event.getDragboard().hasImage() &&
-						zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureSource()), GridPane.getColumnIndex((Node) event.getGestureSource()))) {
+						event.getGestureTarget() instanceof Figur){
 					/* allow for moving */
 					event.acceptTransferModes(TransferMode.MOVE);
 
-					schmeißen(pane);
+					spv.zumSchmeißen = (Figur) event.getGestureTarget();
 					success = true;
 				}
 				event.setDropCompleted(success);
@@ -83,15 +85,23 @@ public abstract class Figur extends Rectangle{
 			public void handle(DragEvent event) {
 				/* Sicht: Figur, die fallengelassen wird */
 				if(event.getGestureTarget() != null
-						&& event.getGestureTarget() instanceof Node
-						&& zugErlaubt(pane, GridPane.getRowIndex((Node) event.getGestureTarget()), GridPane.getColumnIndex((Node) event.getGestureTarget()))) {
+						&& event.getGestureTarget() instanceof Figur) {
 
-					int columnIndex = GridPane.getColumnIndex((Node) event.getGestureTarget()); // GestureTarget ist die Node, wo es draufgelegt wird
-					int rowIndex = GridPane.getRowIndex((Node) event.getGestureTarget());
-					pane.getChildren().remove(me);
-					pane.add(me, columnIndex, rowIndex);
-
-
+					int columnIndex = GridPane.getColumnIndex((Figur) event.getGestureTarget()); // GestureTarget ist die Figur, wo es draufgelegt wird
+					int rowIndex = GridPane.getRowIndex((Figur) event.getGestureTarget());
+					spv.schmeißer = (Figur) event.getGestureSource();
+					spv.zugPrüfen();
+				} else if (event.getGestureTarget() != null
+						&& event.getGestureTarget() instanceof Rectangle
+						&& event.getGestureSource() instanceof Figur
+						&& zugErlaubt(((Figur) event.getGestureSource()).row,
+										((Figur) event.getGestureSource()).col,
+										GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
+										GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
+					pane.getChildren().remove((Rectangle) event.getGestureSource());
+					pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
+					((Figur) event.getGestureSource()).col = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
+					((Figur) event.getGestureSource()).row = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
 				}
 				me.setVisible(true);
 
@@ -106,7 +116,7 @@ public abstract class Figur extends Rectangle{
 		pane.getChildren().remove(me);
 	}
 
-	public boolean zugErlaubt(Pane pane, int row, int col) {
+	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
 		return true;
 	}
 

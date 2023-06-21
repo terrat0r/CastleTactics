@@ -17,6 +17,7 @@ public class Spielbrett extends Application {
     GridPane pane;
     Button schliessenBTN;
     Scene scene;
+    private Spielverwaltung spv;
 
     Spielbrett(ArrayList<Figur> schwarz, ArrayList<Figur> weiss, Spielverwaltung spv){
         pane = new GridPane();

@@ -1,6 +1,8 @@
 package com.example.castletactics;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
@@ -37,6 +39,22 @@ public class Spielverwaltung extends Application{
 		default:
 			break;
 		}
+	}
+	
+	public void zugPrüfen(){
+		if(schmeißer.zugErlaubt(schmeißer.row, schmeißer.col, zumSchmeißen.row, zumSchmeißen.col)) {
+			brett.pane.getChildren().remove(schmeißer);
+			brett.pane.add(schmeißer, zumSchmeißen.col, zumSchmeißen.row);
+			schmeißer.row = zumSchmeißen.row;
+			schmeißer.col = zumSchmeißen.col;
+			zumSchmeißen.schmeißen(brett.pane);
+			//System.out.println("ja");
+		}
+		else{
+			//System.out.println("nö");
+		}
+
+
 	}
 
 	public static void main(String[] args) {
