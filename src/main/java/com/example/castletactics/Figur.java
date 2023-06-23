@@ -87,9 +87,9 @@ public abstract class Figur extends Rectangle{
 					&& event.getGestureTarget() instanceof Rectangle
 					&& event.getGestureSource() instanceof Figur
 					&& zugErlaubt(((Figur) event.getGestureSource()).row,
-					((Figur) event.getGestureSource()).col,
-					GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
-					GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
+						((Figur) event.getGestureSource()).col,
+						GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
+						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
 				pane.getChildren().remove((Rectangle) event.getGestureSource());
 				pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
 				((Figur) event.getGestureSource()).col = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
