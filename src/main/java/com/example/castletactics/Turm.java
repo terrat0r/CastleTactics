@@ -12,6 +12,12 @@ public class Turm extends Figur {
 
 
 		//TODO: logik einfügen
-		return true;
+		int diffcol = Math.abs(col - colDest);
+		int diffrow = Math.abs(row - rowDest);
+		if (diffcol == 0 && diffrow != 0 || diffrow == 0 && diffcol != 0){
+
+			return true;
+		}
+	return false;
 	}
 }

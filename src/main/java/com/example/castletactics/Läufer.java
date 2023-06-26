@@ -9,9 +9,8 @@ public class Läufer extends Figur {
 
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
-
-
 		//TODO: logik einfügen
 		return true;
+
 	}
 }

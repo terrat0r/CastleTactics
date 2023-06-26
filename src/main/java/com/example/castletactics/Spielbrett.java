@@ -71,6 +71,9 @@ public class Spielbrett extends Application {
         schwarz.add(new Bauer(pane, false, s, 1, 1, spv));
         schwarz.add(new Bauer(pane, false, s, 2, 1, spv));
         schwarz.add(new König(pane, false, s, 4, 3, spv));
+        schwarz.add(new Läufer(pane, false, s, 7,7, spv));
+        schwarz.add(new Turm(pane, false, s, 6,7, spv));
+        weiss.add(new Turm(pane, true, s, 5, 7, spv));
 
         //Button Hauptmenü
         pane.add(schliessenBTN, 0, 8, 2, 1);
