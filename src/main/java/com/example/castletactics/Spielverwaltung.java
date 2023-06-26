@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class Spielverwaltung extends Application{
 	private final Spielbrett brett;
+	public Figur[] getSchwarz;
+	public Figur[] getWeiss;
 	Stage stage;
 	final Tactics tactics;
 	public Figur zumSchmeißen;
@@ -40,7 +42,8 @@ public class Spielverwaltung extends Application{
 	}
 	
 	public void zugPrüfen(){
-		if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col)) {
+		if (derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) &&
+				!brett.isOccupiedBySameColor(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col)) {
 			brett.pane.getChildren().remove(derSchmeißende);
 			brett.pane.add(derSchmeißende, zumSchmeißen.col, zumSchmeißen.row);
 			derSchmeißende.row = zumSchmeißen.row;
@@ -58,4 +61,14 @@ public class Spielverwaltung extends Application{
 		//new Spielverwaltung();
 	}
 
+	public boolean isOccupied(int row, int col) {
+		return false;
+	}
+
+	public boolean isOccupiedBySameColor(boolean isWhite, int row, int col) {
+		return isWhite;
+	}
+
+	public void setSpielbrett(Spielbrett spielbrett) {
+	}
 }

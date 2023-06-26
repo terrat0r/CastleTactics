@@ -15,6 +15,7 @@ public class Spielbrett extends Application {
     final GridPane pane;
     final Button schliessenBTN;
     final Scene scene;
+    private Spielverwaltung spv;
     // --Commented out by Inspection (21.06.23, 16:44):private Spielverwaltung spv;
 
     Spielbrett(ArrayList<Figur> schwarz, ArrayList<Figur> weiss, Spielverwaltung spv){
@@ -70,11 +71,15 @@ public class Spielbrett extends Application {
         schwarz.add(new Bauer(pane, false, s, 0, 1, spv));
         schwarz.add(new Bauer(pane, false, s, 1, 1, spv));
         schwarz.add(new Bauer(pane, false, s, 2, 1, spv));
+        schwarz.add(new Läufer(pane, false, s, 6, 5, spv));
         schwarz.add(new König(pane, false, s, 4, 3, spv));
 
         //Button Hauptmenü
         pane.add(schliessenBTN, 0, 8, 2, 1);
         scene = new Scene(pane);
+
+        this.spv = spv;
+        spv.setSpielbrett(this);
 
     }
 
@@ -86,4 +91,31 @@ public class Spielbrett extends Application {
 
     }
 
+    public boolean isOccupied(int row, int col) {
+        for (Figur figur : spv.getSchwarz) {
+            if (figur.row == row && figur.col == col) {
+                return true;
+            }
+        }
+        for (Figur figur : spv.getWeiss) {
+            if (figur.row == row && figur.col == col) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isOccupiedBySameColor(int row, int col, boolean isWhite) {
+        Figur[] figuren = isWhite ? spv.getWeiss : spv.getSchwarz;
+        for (Figur figur : figuren) {
+            if (figur.row == row && figur.col == col) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isOccupiedBySameColor(int row, int col, int row1, int col1) {
+        return false;
+    }
 }
