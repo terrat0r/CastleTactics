@@ -24,7 +24,7 @@ public class Spielbrett extends Application {
 
         // Create 64 rectangles and add to pane
         int count = 0;
-        int s = 115; // side of rectangle
+        int s = 75; // side of rectangle
         for (int i = 0; i < 8; i++) {
             count++;
             for (int j = 0; j < 8; j++) {
@@ -83,8 +83,8 @@ public class Spielbrett extends Application {
         spv.figuren[0][5] = new Läufer(pane, false, s, 5, 0, spv);
         spv.figuren[0][3] = new Königin(pane, false, s, 3, 0, spv);
         spv.figuren[0][4] = new König(pane, false, s, 4, 0, spv);
-         
-         
+
+
         spv.figuren[6][0] = (new Bauer(pane, true, s, 0, 6, spv));
         spv.figuren[6][1] = (new Bauer(pane, true, s, 1, 6, spv));
         spv.figuren[6][2] = (new Bauer(pane, true, s, 2, 6, spv));
