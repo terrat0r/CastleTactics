@@ -24,7 +24,7 @@ public class Spielbrett extends Application {
 
         // Create 64 rectangles and add to pane
         int count = 0;
-        int s = 115; // side of rectangle
+        int s = 75; // side of rectangle
         for (int i = 0; i < 8; i++) {
             count++;
             for (int j = 0; j < 8; j++) {
