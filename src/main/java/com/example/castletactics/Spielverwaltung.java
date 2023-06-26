@@ -59,7 +59,7 @@ public class Spielverwaltung extends Application{
 		return false;
 	}
 
-	public void zugPrüfen(){
+	public boolean zugPrüfen(){
 		if (derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) &&
 				!brett.isOccupiedBySameColor(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col)) {
 			brett.pane.getChildren().remove(derSchmeißende);
