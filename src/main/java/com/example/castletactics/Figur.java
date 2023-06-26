@@ -82,7 +82,12 @@ public abstract class Figur extends Rectangle{
 					&& event.getGestureTarget() instanceof Figur) {
 
 				spv.derSchmeißende = (Figur) event.getGestureSource();
-				spv.zugPrüfen();
+				int srcRow = ((Figur) event.getGestureSource()).row;
+				int srcCol = ((Figur) event.getGestureSource()).col;
+				boolean zp = spv.zugPrüfen();
+				if (event.getGestureSource() instanceof Bauer && zp)
+					spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol);
+				spv.enPassantKandidat = (Figur) event.getGestureSource();
 			} else if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Rectangle
 					&& event.getGestureSource() instanceof Figur
@@ -90,6 +95,11 @@ public abstract class Figur extends Rectangle{
 						((Figur) event.getGestureSource()).col,
 						GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
 						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
+				int srcRow = ((Figur) event.getGestureSource()).row;
+				int srcCol = ((Figur) event.getGestureSource()).col;
+				if (event.getGestureSource() instanceof Bauer)
+					spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol);
+				spv.enPassantKandidat = (Figur) event.getGestureSource();
 				pane.getChildren().remove((Rectangle) event.getGestureSource());
 				pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
 				((Figur) event.getGestureSource()).col = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
