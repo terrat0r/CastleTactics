@@ -25,11 +25,8 @@ public class Bauer extends Figur {
 			return true;
 		}
 		// The pawn can move two squares forward if it is on the starting position
-		if (row == 1 && col == colDest && rowDest == row + 2) {
-			// The pawn moves two squares forward
-			return true;
-		}
-		return false;
+		// The pawn moves two squares forward
+		return row == 1 && col == colDest && rowDest == row + 2;
 	}
 
 
