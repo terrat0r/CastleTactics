@@ -13,7 +13,7 @@ public abstract class Figur extends Rectangle{
 	public final int side;
 	public int row;
 	public int col;
-	private boolean lebt;
+	private boolean lebt = true;
 	private final Rectangle me = this;
 	protected final Spielverwaltung spv;
 
@@ -89,38 +89,37 @@ public abstract class Figur extends Rectangle{
 				spv.derSchmeißende = (Figur) event.getGestureSource();
 				int srcRow = ((Figur) event.getGestureSource()).row;
 				int srcCol = ((Figur) event.getGestureSource()).col;
-				boolean zp = spv.zugPrüfen();
-				if (event.getGestureSource() instanceof Bauer && zp)
-					spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol);
-				spv.enPassantKandidat = (Figur) event.getGestureSource();
-				zug = zp;
-				moved = true;
+				int destRow = ((Figur) event.getGestureTarget()).row;
+				int destCol = ((Figur) event.getGestureTarget()).col;
+
+				if (event.getGestureSource() instanceof Bauer && spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol)) {
+					move(destRow, destCol);
+				} else if (spv.zugPrüfen()) {
+					move(destRow, destCol);
+				}
 			} else if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Rectangle
 					&& event.getGestureSource() instanceof Figur
-					&& zugErlaubt(((Figur) event.getGestureSource()).row,
+					&& ((Figur) event.getGestureSource()).isWhite == spv.whitePlays) {
+				int destRow = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
+				int destCol = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
+				if (event.getGestureSource() instanceof Bauer && spv.enPassantPrüfen((Bauer) event.getGestureSource(), destRow, destCol)) {
+					move(destRow, destCol);
+				}
+				spv.enPassantKandidat = this;
+
+				if (zugErlaubt(((Figur) event.getGestureSource()).row,
 						((Figur) event.getGestureSource()).col,
 						GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
-						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))
-					&& ((Figur) event.getGestureSource()).isWhite == spv.whitePlays) {
-				int srcRow = ((Figur) event.getGestureSource()).row;
-				int srcCol = ((Figur) event.getGestureSource()).col;
-				if (event.getGestureSource() instanceof Bauer)
-					spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol);
-				spv.enPassantKandidat = (Figur) event.getGestureSource();
+						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
+					move(GridPane.getRowIndex(((Rectangle) event.getGestureTarget())), GridPane.getColumnIndex(((Rectangle) event.getGestureTarget())));
 
-				if(GridPane.getRowIndex((Rectangle) event.getGestureTarget()) != ((Figur) event.getGestureSource()).row || GridPane.getColumnIndex((Rectangle) event.getGestureTarget()) != ((Figur) event.getGestureSource()).col) {
-					spv.figuren[GridPane.getRowIndex((Rectangle) event.getGestureTarget())][GridPane.getColumnIndex((Rectangle) event.getGestureTarget())] = spv.figuren[((Figur) event.getGestureSource()).row][((Figur) event.getGestureSource()).col];
-					spv.figuren[((Figur) event.getGestureSource()).row][((Figur) event.getGestureSource()).col] = null;
-					zug = true;
+					pane.getChildren().remove((Rectangle) event.getGestureSource());
+					pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
+					((Figur) event.getGestureSource()).col = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
+					((Figur) event.getGestureSource()).row = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
+					moved = true;
 				}
-
-				pane.getChildren().remove((Rectangle) event.getGestureSource());
-				pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
-				((Figur) event.getGestureSource()).col = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
-				((Figur) event.getGestureSource()).row = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
-
-				moved = true;
 			}
 			me.setVisible(true);
 
@@ -130,35 +129,17 @@ public abstract class Figur extends Rectangle{
 				for (int j = 0; j < 8; j++) {
 					if(spv.figuren[i][j] != null) {
 						switch (spv.figuren[i][j].getClass().getSimpleName()) {
-						case "Bauer":
-							System.out.print('B');
-							break;
-						case "Turm":
-							System.out.print('T');
-							break;
-						case "Läufer":
-							System.out.print('L');
-							break;
-						case "Springer":
-							System.out.print('S');
-							break;
-						case "König":
-							System.out.print('K');
-							break;
-						case "Königin":
-							System.out.print('Q');
-							break;
-						default:
-							System.out.print('?');
+						case "Bauer" -> System.out.print('B');
+						case "Turm" -> System.out.print('T');
+						case "Läufer" -> System.out.print('L');
+						case "Springer" -> System.out.print('S');
+						case "König" -> System.out.print('K');
+						case "Königin" -> System.out.print('Q');
+						default -> System.out.print('?');
 						}
 					} else System.out.print(' ');
-					//System.out.print((spv.figuren[i][j]==null?0:1) + " ");
 				}
 				System.out.println();
-			}
-			//System.out.println();
-			if (zug) {
-				spv.zugende();
 			}
 			event.consume();
 		});
@@ -166,6 +147,7 @@ public abstract class Figur extends Rectangle{
 
 	public void schmeißen(GridPane pane)	{
 		me.setVisible(false);
+		spv.geschmissen.add(this);
 		pane.getChildren().remove(me);
 	}
 
@@ -175,5 +157,23 @@ public abstract class Figur extends Rectangle{
 		return me;
 	}
 
-	public boolean hasMoved(){ return moved; }
+	public boolean hasMovedOnce(){ return moved; }
+
+	public void move(int destRow, int destCol){
+		System.out.println("Move from: " + row + ", " + col);
+		System.out.println("Move to: " + destRow + ", " + destCol);
+		System.out.println("Move needed: " + (destRow != row || destCol != col));
+		if (destRow != row || destCol != col) {
+			spv.schmeißen(destRow, destCol);
+			spv.brett.pane.getChildren().remove(me);
+			spv.brett.pane.add(me, destCol, destRow);
+			spv.figuren[destRow][destCol] = spv.figuren[row][col];
+			spv.figuren[row][col] = null;
+			row = destRow;
+			col = destCol;
+			moved = true;
+			spv.enPassantKandidat = this;
+			spv.zugende();
+		}
+	}
 }

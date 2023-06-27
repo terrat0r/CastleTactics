@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Spielverwaltung extends Application{
 	int round = 0;
 	boolean whitePlays = true;
-	private final Spielbrett brett;
+	public final Spielbrett brett;
 	Stage stage;
 	final Tactics tactics;
 	public Figur zumSchmeißen;
@@ -45,32 +45,20 @@ public class Spielverwaltung extends Application{
 		}
 	}
 
-	public boolean enPassantPrüfen(Bauer b, int srcRow, int srcCol)
+	public boolean enPassantPrüfen(Bauer b, int destRow, int destCol)
 	{
-		System.out.println("??");
-		if(enPassantKandidat != null && enPassantKandidat.row == srcRow && Math.abs(enPassantKandidat.col-srcCol) == 1
-				&& enPassantKandidat.col == b.col && Math.abs(b.row - enPassantKandidat.row) == 1){
+		if(enPassantKandidat != null && enPassantKandidat.col == destCol && Math.abs(enPassantKandidat.row-destRow) == 1
+				&& enPassantKandidat.row == b.row && Math.abs(b.col - enPassantKandidat.col) == 1){
 			enPassantKandidat.schmeißen(brett.pane);
-			System.out.println("enPassant!");
+			//System.out.println("en Passant!");
 			return true;
 		}
-		//System.out.println("" + enPassantKandidat.row + enPassantKandidat.col + srcRow + srcCol);
 		return false;
 	}
 	
 	public boolean zugPrüfen(){
 		if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) && derSchmeißende.isWhite != zumSchmeißen.isWhite && whitePlays == derSchmeißende.isWhite) {
-			brett.pane.getChildren().remove(derSchmeißende);
-			brett.pane.add(derSchmeißende, zumSchmeißen.col, zumSchmeißen.row);
-			geschmissen.add(figuren[zumSchmeißen.row][zumSchmeißen.col]);
 
-			if(zumSchmeißen.row != derSchmeißende.row || zumSchmeißen.col != derSchmeißende.col) {
-				figuren[zumSchmeißen.row][zumSchmeißen.col] = figuren[derSchmeißende.row][derSchmeißende.col];
-				figuren[derSchmeißende.row][derSchmeißende.col] = null;
-			}
-			derSchmeißende.row = zumSchmeißen.row;
-			derSchmeißende.col = zumSchmeißen.col;
-			zumSchmeißen.schmeißen(brett.pane);
 			return true;
 		}
 		return false;
@@ -80,6 +68,13 @@ public class Spielverwaltung extends Application{
 		whitePlays = !whitePlays;
 		if (whitePlays)
 			round++;
+	}
+
+	public void schmeißen(int row, int col) {
+		if (figuren[row][col] != null) {
+			figuren[row][col].schmeißen(brett.pane);
+			figuren[row][col] = null;
+		}
 	}
 
 	public static void main(String[] args) {

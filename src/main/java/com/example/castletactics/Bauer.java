@@ -10,23 +10,36 @@ public class Bauer extends Figur {
 
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
-		// Check if the destination square is outside the chessboard
-		if (rowDest < 0 || rowDest >= 8 || colDest < 0 || colDest >= 8) {
-			return false;
+		if (!isWhite) {
+			// Check if the destination square is diagonally adjacent to the current square
+			if (Math.abs(col - colDest) == 1 && rowDest == row + 1 && spv.figuren[rowDest][colDest] != null) {
+				// The pawn can move diagonally forward to capture a piece
+				return true;
+			}
+
+			// Check if the pawn is moving one square forward
+			if (col == colDest && rowDest == row + 1 && spv.figuren[row+1][col] == null) {
+				// The pawn moves one square forward
+				return true;
+			}
+			// The pawn can move two squares forward if it is on the starting position
+			// The pawn moves two squares forward
+			return !moved && col == colDest && rowDest == row + 2 && spv.figuren[row+1][col] == null && spv.figuren[row+2][col] == null ;
+		} else {
+			// Check if the destination square is diagonally adjacent to the current square
+			if (Math.abs(col - colDest) == 1 && rowDest == row - 1 && spv.figuren[rowDest][colDest] != null) {
+				// The pawn can move diagonally forward to capture a piece
+				return true;
+			}
+			// Check if the pawn is moving one square forward
+			if (col == colDest && rowDest == row - 1&& spv.figuren[row-1][col] == null) {
+				// The pawn moves one square forward
+				return true;
+			}
+			// The pawn can move two squares forward if it is on the starting position
+			// The pawn moves two squares forward
+			return !moved && col == colDest && rowDest == row - 2 && spv.figuren[row-1][col] == null && spv.figuren[row-2][col] == null;
 		}
-		// Check if the destination square is diagonally adjacent to the current square
-		if (Math.abs(col - colDest) == 1 && rowDest == row + 1) {
-			// The pawn can move diagonally forward to capture a piece
-			return true;
-		}
-		// Check if the pawn is moving one square forward
-		if (col == colDest && rowDest == row + 1) {
-			// The pawn moves one square forward
-			return true;
-		}
-		// The pawn can move two squares forward if it is on the starting position
-		// The pawn moves two squares forward
-		return row == 1 && col == colDest && rowDest == row + 2;
 	}
 
 
