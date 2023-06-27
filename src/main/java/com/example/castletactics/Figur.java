@@ -15,7 +15,6 @@ public abstract class Figur extends Rectangle{
 	private boolean lebt;
 	private final Rectangle me = this;
 	protected final Spielverwaltung spv;
-	protected final boolean isWhite;
 
 	protected Figur(GridPane pane, boolean isWhite, String path, int side, int col, int row, Spielverwaltung spv) {
 		super(side,side,side,side);
@@ -24,7 +23,6 @@ public abstract class Figur extends Rectangle{
 		this.col = col;
 		this.row = row;
 		this.spv = spv;
-		this.isWhite = isWhite;
 		Image image1 = new Image(path,side,side,false,false);
 		ImagePattern imagePattern = new ImagePattern(image1);
 		this.setFill(imagePattern);

@@ -108,8 +108,6 @@ public class Spielbrett extends Application {
         scene = new Scene(pane);
 
         this.spv = spv;
-        spv.setSpielbrett(this);
-
     }
 
     public void start(Stage primaryStage) {
@@ -118,33 +116,5 @@ public class Spielbrett extends Application {
         primaryStage.setScene(scene);//scene in  primaryStage gesetzt
         primaryStage.show();
 
-    }
-
-    public boolean isOccupied(int row, int col) {
-        for (Figur figur : spv.getSchwarz) {
-            if (figur.row == row && figur.col == col) {
-                return true;
-            }
-        }
-        for (Figur figur : spv.getWeiss) {
-            if (figur.row == row && figur.col == col) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isOccupiedBySameColor(int row, int col, boolean isWhite) {
-        Figur[] figuren = isWhite ? spv.getWeiss : spv.getSchwarz;
-        for (Figur figur : figuren) {
-            if (figur.row == row && figur.col == col) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isOccupiedBySameColor(int row, int col, int row1, int col1) {
-        return false;
     }
 }
