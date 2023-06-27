@@ -9,9 +9,16 @@ public class Springer extends Figur {
 
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
+		int rowDiff = Math.abs(row - rowDest);
+		int colDiff = Math.abs(col - colDest);
 
+		// Checking the knight's move patterns
+		if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
+			// The move is allowed
+			return true;
+		}
 
-		//TODO: logik einfügen
-		return true;
+		// The move is not allowed
+		return false;
 	}
 }
