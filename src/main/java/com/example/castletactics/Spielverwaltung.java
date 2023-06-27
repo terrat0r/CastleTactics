@@ -3,13 +3,12 @@ package com.example.castletactics;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class Spielverwaltung extends Application{
+	int round = 0;
+	boolean whitePlays = true;
 	private final Spielbrett brett;
-	public Figur[] getSchwarz;
-	public Figur[] getWeiss;
 	Stage stage;
 	final Tactics tactics;
 	public Figur zumSchmeißen;
@@ -58,28 +57,29 @@ public class Spielverwaltung extends Application{
 		//System.out.println("" + enPassantKandidat.row + enPassantKandidat.col + srcRow + srcCol);
 		return false;
 	}
-
+	
 	public boolean zugPrüfen(){
-		if (derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) &&
-				!brett.isOccupiedBySameColor(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col)) {
+		if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) && derSchmeißende.isWhite != zumSchmeißen.isWhite && whitePlays == derSchmeißende.isWhite) {
 			brett.pane.getChildren().remove(derSchmeißende);
 			brett.pane.add(derSchmeißende, zumSchmeißen.col, zumSchmeißen.row);
 			geschmissen.add(figuren[zumSchmeißen.row][zumSchmeißen.col]);
-			figuren[zumSchmeißen.row][zumSchmeißen.col] = figuren[derSchmeißende.row][derSchmeißende.col];
-			figuren[derSchmeißende.row][derSchmeißende.col] = null;
+
+			if(zumSchmeißen.row != derSchmeißende.row || zumSchmeißen.col != derSchmeißende.col) {
+				figuren[zumSchmeißen.row][zumSchmeißen.col] = figuren[derSchmeißende.row][derSchmeißende.col];
+				figuren[derSchmeißende.row][derSchmeißende.col] = null;
+			}
 			derSchmeißende.row = zumSchmeißen.row;
 			derSchmeißende.col = zumSchmeißen.col;
 			zumSchmeißen.schmeißen(brett.pane);
-			for (int i = 0; i < 8; i++) {
-				for (int j = 0; j < 8; j++) {
-					System.out.print((figuren[i][j]==null?0:1) + " ");
-				}
-				System.out.println();
-			}
-			//System.out.println("ja");
+			return true;
 		}
-		//System.out.println("nö");
-		return true;
+		return false;
+	}
+
+	public void zugende() {
+		whitePlays = !whitePlays;
+		if (whitePlays)
+			round++;
 	}
 
 	public static void main(String[] args) {
@@ -87,14 +87,4 @@ public class Spielverwaltung extends Application{
 		//new Spielverwaltung();
 	}
 
-	public boolean isOccupied(int row, int col) {
-		return false;
-	}
-
-	public boolean isOccupiedBySameColor(boolean isWhite, int row, int col) {
-		return isWhite;
-	}
-
-	public void setSpielbrett(Spielbrett spielbrett) {
-	}
 }
