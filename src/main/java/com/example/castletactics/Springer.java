@@ -17,7 +17,6 @@ public class Springer extends Figur {
 			// The move is allowed
 			return true;
 		}
-
 		// The move is not allowed
 		return false;
 	}

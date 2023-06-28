@@ -9,7 +9,26 @@ public class Läufer extends Figur {
 
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
-		return true;
+		if (Math.abs(row - rowDest) == Math.abs(col - colDest)) {
+			int startRow = Math.min(row, rowDest);
+			int endRow = Math.max(row, rowDest);
+			int startCol = Math.min(col, colDest);
+			int endCol = Math.max(col, colDest);
+			int r = startRow + 1;
+			int c = startCol + 1;
+			while (r < endRow && c < endCol) {
+				// Check for obstructions
+				if (spv.zugPrüfen()) {
+					return false;
+				}
+				r++;
+				c++;
+			}
+			return true;
+		}
+
+		// The move is not allowed
+		return false;
 	}
 
 }
