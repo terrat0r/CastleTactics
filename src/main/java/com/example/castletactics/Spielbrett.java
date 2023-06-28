@@ -3,6 +3,7 @@ package com.example.castletactics;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -15,6 +16,7 @@ public class Spielbrett extends Application {
     final GridPane pane;
     final Button schliessenBTN;
     final Scene scene;
+    TextArea textArea;
     private Spielverwaltung spv;
     // --Commented out by Inspection (21.06.23, 16:44):private Spielverwaltung spv;
 
@@ -22,6 +24,7 @@ public class Spielbrett extends Application {
         pane = new GridPane();
         schliessenBTN = new Button("Schließen");
         schliessenBTN.setOnAction(l-> spv.fensterWechseln("Hauptmenü"));
+
 
         // Create 64 rectangles and add to pane
         int count = 0;
@@ -104,8 +107,11 @@ public class Spielbrett extends Application {
         spv.figuren[7][4] = (new König(pane, true, s, 4, 7, spv));
 
         //Button Hauptmenü
+        textArea = new TextArea();
+        pane.add(textArea,8,0,1,8);
         pane.add(schliessenBTN, 0, 8, 2, 1);
         scene = new Scene(pane);
+
 
         this.spv = spv;
     }

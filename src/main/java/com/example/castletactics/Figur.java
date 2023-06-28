@@ -164,6 +164,7 @@ public abstract class Figur extends Rectangle{
 		System.out.println("Move to: " + destRow + ", " + destCol);
 		System.out.println("Move needed: " + (destRow != row || destCol != col));
 		if (destRow != row || destCol != col) {
+			spv.brett.textArea.appendText("Runde: " + spv.round + "\nMove:" + row + "," + col + " to " + destRow + "," + destCol + "\n");
 			spv.schmeißen(destRow, destCol);
 			spv.brett.pane.getChildren().remove(me);
 			spv.brett.pane.add(me, destCol, destRow);
