@@ -1,4 +1,4 @@
-package com.example.castletactics;
+package de.basachsen._3it_22.castletactics;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -12,13 +12,12 @@ public class Tactics extends Application {
     final Scene scene;
     final Button spielbrettBTN;
 
-    public Tactics(Spielverwaltung spv)
-    {
+    public Tactics(Spielverwaltung spielverwaltung) {
         root = new Group();
         scene = new Scene(root);
 
-        spielbrettBTN = new Button("Spielbrett öffnen");
-        spielbrettBTN.setOnAction(l-> spv.fensterWechseln("Schach"));
+        spielbrettBTN = new Button("SpielbrettJFX öffnen");
+        spielbrettBTN.setOnAction(l-> spielverwaltung.fensterWechseln("Schach"));
         root.getChildren().add(spielbrettBTN);
 
         scene.getStylesheets().add("/style.css");

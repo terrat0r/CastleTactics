@@ -1,10 +1,12 @@
-package com.example.castletactics;
+package de.basachsen._3it_22.castletactics.figures;
 
+import de.basachsen._3it_22.castletactics.Spielverwaltung;
+import de.basachsen._3it_22.castletactics.jfx.FigurJFX;
 import javafx.scene.layout.GridPane;
 
-public class Königin extends Figur {
-	Königin(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
-		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-queen-white.png" : "file:./src/main/resources/img/chess-queen-black.png", side, col, row, spv);
+public class Königin extends FigurJFX {
+	public Königin(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spielverwaltung){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-queen-white.png" : "file:./src/main/resources/img/chess-queen-black.png", side, col, row, spielverwaltung);
 	}
 
 	@Override
@@ -20,7 +22,8 @@ public class Königin extends Figur {
 			int endCol = Math.max(col, colDest);
 			for (int c = startCol + 1; c < endCol; c++) {
 				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				//TODO check if attribute .zugPrüfen() should be moved to FigurJFX
+				if (spielverwaltung.zugPrüfen()) {
 					return false;
 				}
 			}
@@ -33,7 +36,7 @@ public class Königin extends Figur {
 			int endRow = Math.max(row, rowDest);
 			for (int r = startRow + 1; r < endRow; r++) {
 				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				if (spielverwaltung.zugPrüfen()) {
 					return false;
 				}
 			}
@@ -50,7 +53,7 @@ public class Königin extends Figur {
 			int c = startCol + 1;
 			while (r < endRow && c < endCol) {
 				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				if (spielverwaltung.zugPrüfen()) {
 					return false;
 				}
 				r++;
