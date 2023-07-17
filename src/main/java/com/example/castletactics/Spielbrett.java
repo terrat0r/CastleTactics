@@ -110,7 +110,9 @@ public class Spielbrett extends Application {
         textArea = new TextArea();
         pane.add(textArea,8,0,1,8);
         pane.add(schliessenBTN, 0, 8, 2, 1);
+        textArea.setEditable(false);
         scene = new Scene(pane);
+        schliessenBTN.requestFocus();
 
 
         this.spv = spv;
@@ -121,6 +123,9 @@ public class Spielbrett extends Application {
         primaryStage.setTitle("Castle Tactics"); // Name des pane gesetzt
         primaryStage.setScene(scene);//scene in  primaryStage gesetzt
         primaryStage.show();
+
+        //primaryStage.setWidth(pane.getWidth() + 150);
+        //primaryStage.setHeight(pane.getHeight() + 100);
 
     }
 }

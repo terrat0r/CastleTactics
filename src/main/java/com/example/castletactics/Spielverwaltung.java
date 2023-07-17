@@ -55,7 +55,11 @@ public class Spielverwaltung extends Application{
 		}
 		return false;
 	}
-	
+
+	/**
+	 * This function is intended to only be called once per play-draw
+	 * @return
+	 */
 	public boolean zugPrüfen(){
 		if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, zumSchmeißen.row, zumSchmeißen.col) && derSchmeißende.isWhite != zumSchmeißen.isWhite && whitePlays == derSchmeißende.isWhite) {
 

@@ -9,9 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +128,8 @@
       <workItem from="1687774734728" duration="5089000" />
       <workItem from="1687789769810" duration="85000" />
       <workItem from="1687859835551" duration="16839000" />
+      <workItem from="1688898367285" duration="280000" />
+      <workItem from="1689581231514" duration="2833000" />
     </task>
     <task id="LOCAL-00001" summary="stuff *sinnlos*">
       <created>1686649872748</created>

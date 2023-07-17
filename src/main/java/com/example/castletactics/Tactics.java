@@ -1,9 +1,11 @@
 package com.example.castletactics;
 
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -32,6 +34,14 @@ public class Tactics extends Application {
         stage.setResizable(false);
         //stage.setFullScreen(true);
         stage.show();
+        //stage.setHeight(100);
+        //stage.setWidth(200);
+        stage.show();
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+        double x = bounds.getMinX() + (bounds.getWidth() - scene.getWidth()) * 0.2;
+        double y = bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) * 0.1;
+        stage.setX(x);
+        stage.setY(y);
     }
 
 }
