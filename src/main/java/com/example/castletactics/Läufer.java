@@ -17,8 +17,8 @@ public class Läufer extends Figur {
 			int r = startRow + 1;
 			int c = startCol + 1;
 			while (r < endRow && c < endCol) {
-				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				// Check for obstructions on the board
+				if (spv.figuren[r][c] != null) {
 					return false;
 				}
 				r++;
@@ -30,5 +30,6 @@ public class Läufer extends Figur {
 		// The move is not allowed
 		return false;
 	}
+
 
 }
