@@ -20,7 +20,7 @@ public class Königin extends Figur {
 			int endCol = Math.max(col, colDest);
 			for (int c = startCol + 1; c < endCol; c++) {
 				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				if (spv.figuren[row][c] != null) {
 					return false;
 				}
 			}
@@ -33,7 +33,7 @@ public class Königin extends Figur {
 			int endRow = Math.max(row, rowDest);
 			for (int r = startRow + 1; r < endRow; r++) {
 				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				if (spv.figuren[r][col] != null) {
 					return false;
 				}
 			}
@@ -49,8 +49,8 @@ public class Königin extends Figur {
 			int r = startRow + 1;
 			int c = startCol + 1;
 			while (r < endRow && c < endCol) {
-				// Check for obstructions
-				if (spv.zugPrüfen()) {
+				// Check for obstructions on the board
+				if (spv.figuren[r][c] != null) {
 					return false;
 				}
 				r++;
@@ -62,5 +62,6 @@ public class Königin extends Figur {
 		// The move is not allowed
 		return false;
 	}
+
 
 }
