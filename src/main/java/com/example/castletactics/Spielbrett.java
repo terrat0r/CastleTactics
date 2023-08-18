@@ -1,6 +1,7 @@
 package com.example.castletactics;
 
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -21,6 +22,7 @@ public class Spielbrett extends Application {
     // --Commented out by Inspection (21.06.23, 16:44):private Spielverwaltung spv;
 
     Spielbrett(Spielverwaltung spv){
+
         pane = new GridPane();
         schliessenBTN = new Button("Schließen");
         schliessenBTN.setOnAction(l-> spv.fensterWechseln("Hauptmenü"));
@@ -106,6 +108,21 @@ public class Spielbrett extends Application {
         spv.figuren[7][3] = (new Königin(pane, true, s, 3, 7, spv));
         spv.figuren[7][4] = (new König(pane, true, s, 4, 7, spv));
 
+
+        pane.setOnMouseClicked(event -> {
+            int clickedRow = (int) (event.getY() / s);
+            int clickedCol = (int) (event.getX() / s);
+            Figur selectedFigur = spv.figuren[clickedRow][clickedCol];
+
+            if (selectedFigur != null && selectedFigur.isWhite == spv.whitePlays) {
+                // Clear previous highlights
+                clearHighlights();
+
+                // Highlight possible moves for the selected piece
+                selectedFigur.highlightPossibleMoves(pane);
+            }
+        });
+
         //Button Hauptmenü
         textArea = new TextArea();
         pane.add(textArea,8,0,1,8);
@@ -116,6 +133,12 @@ public class Spielbrett extends Application {
 
 
         this.spv = spv;
+    }
+    private void clearHighlights() {
+        // Remove the highlights from all squares
+        for (Node node : pane.getChildren()) {
+            node.setStyle(""); // Remove any custom style
+        }
     }
 
     public void start(Stage primaryStage) {

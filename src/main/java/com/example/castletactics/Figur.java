@@ -1,11 +1,14 @@
 package com.example.castletactics;
 
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+
+import java.util.List;
 
 public abstract class Figur extends Rectangle{
 	protected boolean moved = false;
@@ -16,6 +19,35 @@ public abstract class Figur extends Rectangle{
 	private boolean lebt = true;
 	private final Rectangle me = this;
 	protected final Spielverwaltung spv;
+
+	public abstract List<predict> getPossibleMoves();
+
+	public void highlightPossibleMoves(GridPane pane) {
+		List<predict> possibleMoves = getPossibleMoves();
+		for (predict move : possibleMoves) {
+			int destRow = move.getRow();
+			int destCol = move.getCol();
+			// Highlight the square at (destRow, destCol)
+			// You can change the background color or add some visual effect to indicate the valid moves.
+			// Example:
+			Node node = getNodeFromGridPane(pane, destRow, destCol);
+			if (node != null) {
+				node.setStyle("-fx-background-color: lightblue;");
+			}
+		}
+	}
+
+	private Node getNodeFromGridPane(GridPane gridPane, int row, int col) {
+		for (Node node : gridPane.getChildren()) {
+			if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col) {
+				return node;
+			}
+		}
+		return null;
+	}
+
+
+
 
 	protected Figur(GridPane pane, boolean isWhite, String path, int side, int col, int row, Spielverwaltung spv) {
 		super(side,side,side,side);
