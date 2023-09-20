@@ -16,15 +16,26 @@ public class Turm extends Figur {
 
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
+		if (row == rowDest || col == colDest && rowDest != colDest) {
+			/* x < y = -1 	x == y = 0 	 x > y = 1 */ // --> Genau was wir hier brauchten
+			int rowFactor = Integer.compare(rowDest, row);
+			int colFactor = Integer.compare(colDest, col);
 
-
-		//TODO: logik einfügen
-		int diffcol = Math.abs(col - colDest);
-		int diffrow = Math.abs(row - rowDest);
-		if (diffcol == 0 && diffrow != 0 || diffrow == 0 && diffcol != 0){
-
-			return true;
+			// Sich selbst muss man nicht prüfen
+			int r = row + rowFactor;
+			int c = col + colFactor;
+			while (r != rowDest || c != colDest) {
+				// Check for obstructions on the way
+				if (spv.figuren[r][c] != null) {
+					return false;
+				}
+				r += rowFactor;
+				c += colFactor;
+			}
+			// Check for destination
+            return spv.figuren[r][c] == null || spv.figuren[r][c] != null && spv.figuren[r][c].isWhite != this.isWhite;
 		}
-	return false;
+		// The move is not allowed
+		return false;
 	}
 }

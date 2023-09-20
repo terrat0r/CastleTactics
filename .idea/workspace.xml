@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="Turm Logik vervollständigt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,12 +75,26 @@
       <workItem from="1695242189126" duration="219000" />
       <workItem from="1695242415339" duration="1416000" />
       <workItem from="1695244625896" duration="290000" />
-      <workItem from="1695244924381" duration="1004000" />
+      <workItem from="1695244924381" duration="2106000" />
     </task>
+    <task id="LOCAL-00001" summary="Springer vervollständigt">
+      <option name="closed" value="true" />
+      <created>1695246062129</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695246062129</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Springer vervollständigt" />
+    <MESSAGE value="Turm Logik vervollständigt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Turm Logik vervollständigt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
