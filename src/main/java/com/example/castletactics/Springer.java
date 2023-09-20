@@ -22,8 +22,8 @@ public class Springer extends Figur {
 
 		// Checking the knight's move patterns
 		if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
-			// The move is allowed
-			return true;
+			if (spv.figuren[rowDest][colDest] == null) return true; // Leeres Feld
+			else return this.isWhite != spv.figuren[rowDest][colDest].isWhite; // Gegner Feld
 		}
 		// The move is not allowed
 		return false;
