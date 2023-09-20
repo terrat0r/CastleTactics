@@ -18,29 +18,9 @@ public class Königin extends Figur {
 	@Override
 	public boolean zugErlaubt(int row, int col, int rowDest, int colDest) {
 		if (Math.abs(row - rowDest) == Math.abs(col - colDest)  || row == rowDest || col == colDest) {
-			int rowFactor;
-			if(row < rowDest) {
-				rowFactor = 1;
-			}
-			else if (row == rowDest)
-			{
-				rowFactor = 0;
-			}
-			else {
-				rowFactor = -1;
-			}
-			int colFactor;
+			int rowFactor = Integer.compare(rowDest, row);
+			int colFactor = Integer.compare(colDest, col);
 
-			if(col < colDest) {
-				colFactor = 1;
-			}
-			else if (col == colDest)
-			{
-				colFactor = 0;
-			}
-			else {
-				colFactor = -1;
-			}
 			// Sich selbst muss man nicht prüfen
 			int r = row + rowFactor;
 			int c = col + colFactor;
@@ -53,9 +33,7 @@ public class Königin extends Figur {
 				c += colFactor;
 			}
 			// Check for destination
-			if (spv.figuren[r][c] == null || spv.figuren[r][c] != null && spv.figuren[r][c].isWhite != this.isWhite) {
-				return true;
-			}
+            return spv.figuren[r][c] == null || spv.figuren[r][c] != null && spv.figuren[r][c].isWhite != this.isWhite;
 		}
 		// The move is not allowed
 		return false;
