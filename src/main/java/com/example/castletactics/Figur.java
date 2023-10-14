@@ -20,6 +20,7 @@ public abstract class Figur extends Rectangle{
 	private final Rectangle me = this;
 	protected final Spielverwaltung spv;
 	protected final Zugverwaltung zugverwaltung;
+	public int lastMoveRows = 0;
 
 	public abstract List<predict> getPossibleMoves();
 
@@ -204,6 +205,7 @@ public abstract class Figur extends Rectangle{
 			spv.brett.pane.add(me, destCol, destRow);
 			zugverwaltung.figuren[destRow][destCol] = zugverwaltung.figuren[row][col];
 			zugverwaltung.figuren[row][col] = null;
+			lastMoveRows = Math.abs(row-destRow);
 			row = destRow;
 			col = destCol;
 			moved = true; //moved at least 1 time

@@ -23,7 +23,7 @@ public class Zugverwaltung {
     public boolean enPassantPrüfen(Bauer b, int destRow, int destCol)
     {
         if(enPassantKandidat != null && enPassantKandidat.col == destCol && Math.abs(enPassantKandidat.row-destRow) == 1
-                && enPassantKandidat.row == b.row && Math.abs(b.col - enPassantKandidat.col) == 1){
+                && enPassantKandidat.row == b.row && Math.abs(b.col - enPassantKandidat.col) == 1 && enPassantKandidat.lastMoveRows == 2){
             enPassantKandidat.schmeißen(spv.brett.pane);
             //System.out.println("en Passant!");
             return true;
@@ -41,6 +41,38 @@ public class Zugverwaltung {
             return true;
         }
         return false;
+    }
+
+    public boolean zugPrüfen(int rowDest, int colDest) {
+        if(derSchmeißende.zugErlaubt(derSchmeißende.row, derSchmeißende.col, rowDest, colDest) && whitePlays == derSchmeißende.isWhite) {
+
+            return true;
+        }
+        return false;
+    }
+
+    public boolean move(int row, int col, int rowDest, int colDest) {
+        derSchmeißende = figuren[row][col];
+        zumSchmeißen = figuren[rowDest][colDest];
+        boolean success = false;
+        if (zumSchmeißen != null && zugPrüfen()) {
+            derSchmeißende.move(rowDest, colDest);
+            success = true;
+        }
+        else if (zumSchmeißen == null && zugPrüfen(rowDest, colDest)) {
+            derSchmeißende.move(rowDest, colDest);
+            success = true;
+        }
+
+        if (derSchmeißende instanceof Bauer) {
+            if(enPassantPrüfen((Bauer) derSchmeißende, rowDest, colDest)) {
+                derSchmeißende.move(rowDest, colDest);
+                success = true;
+            }
+        }
+
+        //TODO: Rochade
+        return success;
     }
 
     public void zugende() {
