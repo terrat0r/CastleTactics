@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +49,7 @@
     "WebServerToolWindowFactoryState": "false",
     "full.screen.before.presentation.mode": "false",
     "ignore.virus.scanning.warn.message": "true",
+    "last.edited.regexp": "Bauer von [1, 2] nach [2, 3]",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +88,7 @@
       <workItem from="1695244625896" duration="290000" />
       <workItem from="1695244924381" duration="2597000" />
       <workItem from="1697277525711" duration="49000" />
-      <workItem from="1697277603493" duration="3847000" />
+      <workItem from="1697277603493" duration="5991000" />
     </task>
     <task id="LOCAL-00001" summary="Springer vervollständigt">
       <option name="closed" value="true" />
@@ -122,17 +114,28 @@
       <option name="project" value="LOCAL" />
       <updated>1695247229965</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="GROSSES UPDATE: Runden-Und Zugverwaltung in Neue Klasse ausgelagert.">
+      <option name="closed" value="true" />
+      <created>1697287444048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697287444048</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Springer vervollständigt" />
     <MESSAGE value="Turm Logik vervollständigt" />
     <MESSAGE value="Königin Logik vereinfacht" />
-    <option name="LAST_COMMIT_MESSAGE" value="Königin Logik vereinfacht" />
+    <MESSAGE value="GROSSES UPDATE: Runden-Und Zugverwaltung in Neue Klasse ausgelagert." />
+    <option name="LAST_COMMIT_MESSAGE" value="GROSSES UPDATE: Runden-Und Zugverwaltung in Neue Klasse ausgelagert." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
