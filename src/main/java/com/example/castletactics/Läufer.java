@@ -5,8 +5,8 @@ import javafx.scene.layout.GridPane;
 import java.util.List;
 
 public class Läufer extends Figur {
-	Läufer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
-		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-bishop-white.png" : "file:./src/main/resources/img/chess-bishop-black.png", side, col, row, spv);
+	Läufer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv, Zugverwaltung zugverwaltung){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-bishop-white.png" : "file:./src/main/resources/img/chess-bishop-black.png", side, col, row, spv, zugverwaltung);
 	}
 
 
@@ -37,7 +37,7 @@ public class Läufer extends Figur {
 
 			while (r != rowDest && c != colDest) {
 				// Check for obstructions on the way
-				if (spv.figuren[r][c] != null) {
+				if (zugverwaltung.figuren[r][c] != null) {
 					return false;
 				}
 				r += rowFactor;
@@ -45,7 +45,7 @@ public class Läufer extends Figur {
 			}
 
 			// Check for destination
-			if (spv.figuren[r][c] == null || spv.figuren[r][c] != null && spv.figuren[r][c].isWhite != this.isWhite) {
+			if (zugverwaltung.figuren[r][c] == null || zugverwaltung.figuren[r][c] != null && zugverwaltung.figuren[r][c].isWhite != this.isWhite) {
 				return true;
 			}
 		}

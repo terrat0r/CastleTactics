@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="Turm Logik vervollständigt">
+    <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Bauer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/König.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Königin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Läufer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Springer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Turm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +62,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -75,7 +94,9 @@
       <workItem from="1695242189126" duration="219000" />
       <workItem from="1695242415339" duration="1416000" />
       <workItem from="1695244625896" duration="290000" />
-      <workItem from="1695244924381" duration="2106000" />
+      <workItem from="1695244924381" duration="2597000" />
+      <workItem from="1697277525711" duration="49000" />
+      <workItem from="1697277603493" duration="3847000" />
     </task>
     <task id="LOCAL-00001" summary="Springer vervollständigt">
       <option name="closed" value="true" />
@@ -85,7 +106,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695246062129</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Turm Logik vervollständigt">
+      <option name="closed" value="true" />
+      <created>1695247033129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695247033129</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Königin Logik vereinfacht">
+      <option name="closed" value="true" />
+      <created>1695247229965</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695247229965</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Springer vervollständigt" />
     <MESSAGE value="Turm Logik vervollständigt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Turm Logik vervollständigt" />
+    <MESSAGE value="Königin Logik vereinfacht" />
+    <option name="LAST_COMMIT_MESSAGE" value="Königin Logik vereinfacht" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -5,8 +5,8 @@ import javafx.scene.layout.GridPane;
 import java.util.List;
 
 public class Turm extends Figur {
-	Turm(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
-		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-rook-white.png" : "file:./src/main/resources/img/chess-rook-black.png", side, col, row, spv);
+	Turm(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv, Zugverwaltung zugverwaltung){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-rook-white.png" : "file:./src/main/resources/img/chess-rook-black.png", side, col, row, spv, zugverwaltung);
 	}
 
 	@Override
@@ -26,14 +26,14 @@ public class Turm extends Figur {
 			int c = col + colFactor;
 			while (r != rowDest || c != colDest) {
 				// Check for obstructions on the way
-				if (spv.figuren[r][c] != null) {
+				if (zugverwaltung.figuren[r][c] != null) {
 					return false;
 				}
 				r += rowFactor;
 				c += colFactor;
 			}
 			// Check for destination
-            return spv.figuren[r][c] == null || spv.figuren[r][c] != null && spv.figuren[r][c].isWhite != this.isWhite;
+            return zugverwaltung.figuren[r][c] == null || zugverwaltung.figuren[r][c] != null && zugverwaltung.figuren[r][c].isWhite != this.isWhite;
 		}
 		// The move is not allowed
 		return false;

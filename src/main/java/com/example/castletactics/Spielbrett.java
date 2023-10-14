@@ -19,7 +19,6 @@ public class Spielbrett extends Application {
     final Scene scene;
     TextArea textArea;
     private Spielverwaltung spv;
-    // --Commented out by Inspection (21.06.23, 16:44):private Spielverwaltung spv;
 
     Spielbrett(Spielverwaltung spv){
 
@@ -73,48 +72,48 @@ public class Spielbrett extends Application {
         }
 
         //Figuren
-        spv.figuren[1][0] = new Bauer(pane, false, s, 0, 1, spv);
-        spv.figuren[1][1] = new Bauer(pane, false, s, 1, 1, spv);
-        spv.figuren[1][2] = new Bauer(pane, false, s, 2, 1, spv);
-        spv.figuren[1][3] = new Bauer(pane, false, s, 3, 1, spv);
-        spv.figuren[1][4] = new Bauer(pane, false, s, 4, 1, spv);
-        spv.figuren[1][5] = new Bauer(pane, false, s, 5, 1, spv);
-        spv.figuren[1][6] = new Bauer(pane, false, s, 6, 1, spv);
-        spv.figuren[1][7] = new Bauer(pane, false, s, 7, 1, spv);
-        spv.figuren[0][0] = new Turm(pane, false, s, 0, 0, spv);
-        spv.figuren[0][7] = new Turm(pane, false, s, 7, 0, spv);
-        spv.figuren[0][1] = new Springer(pane, false, s, 1, 0, spv);
-        spv.figuren[0][6] = new Springer(pane, false, s, 6, 0, spv);
-        spv.figuren[0][2] = new Läufer(pane, false, s, 2, 0, spv);
-        spv.figuren[0][5] = new Läufer(pane, false, s, 5, 0, spv);
-        spv.figuren[0][3] = new Königin(pane, false, s, 3, 0, spv);
-        spv.figuren[0][4] = new König(pane, false, s, 4, 0, spv);
+        spv.zugverwaltung.figuren[1][0] = new Bauer(pane, false, s, 0, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][1] = new Bauer(pane, false, s, 1, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][2] = new Bauer(pane, false, s, 2, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][3] = new Bauer(pane, false, s, 3, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][4] = new Bauer(pane, false, s, 4, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][5] = new Bauer(pane, false, s, 5, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][6] = new Bauer(pane, false, s, 6, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[1][7] = new Bauer(pane, false, s, 7, 1, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][0] = new Turm(pane, false, s, 0, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][7] = new Turm(pane, false, s, 7, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][1] = new Springer(pane, false, s, 1, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][6] = new Springer(pane, false, s, 6, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][2] = new Läufer(pane, false, s, 2, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][5] = new Läufer(pane, false, s, 5, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][3] = new Königin(pane, false, s, 3, 0, spv, spv.zugverwaltung);
+        spv.zugverwaltung.figuren[0][4] = new König(pane, false, s, 4, 0, spv, spv.zugverwaltung);
 
 
-        spv.figuren[6][0] = (new Bauer(pane, true, s, 0, 6, spv));
-        spv.figuren[6][1] = (new Bauer(pane, true, s, 1, 6, spv));
-        spv.figuren[6][2] = (new Bauer(pane, true, s, 2, 6, spv));
-        spv.figuren[6][3] = (new Bauer(pane, true, s, 3, 6, spv));
-        spv.figuren[6][4] = (new Bauer(pane, true, s, 4, 6, spv));
-        spv.figuren[6][5] = (new Bauer(pane, true, s, 5, 6, spv));
-        spv.figuren[6][6] = (new Bauer(pane, true, s, 6, 6, spv));
-        spv.figuren[6][7] = (new Bauer(pane, true, s, 7, 6, spv));
-        spv.figuren[7][0] = (new Turm(pane, true, s, 0, 7, spv));
-        spv.figuren[7][7] = (new Turm(pane, true, s, 7, 7, spv));
-        spv.figuren[7][1] = (new Springer(pane, true, s, 1, 7, spv));
-        spv.figuren[7][6] = (new Springer(pane, true, s, 6, 7, spv));
-        spv.figuren[7][2] = (new Läufer(pane, true, s, 2, 7, spv));
-        spv.figuren[7][5] = (new Läufer(pane, true, s, 5, 7, spv));
-        spv.figuren[7][3] = (new Königin(pane, true, s, 3, 7, spv));
-        spv.figuren[7][4] = (new König(pane, true, s, 4, 7, spv));
+        spv.zugverwaltung.figuren[6][0] = (new Bauer(pane, true, s, 0, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][1] = (new Bauer(pane, true, s, 1, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][2] = (new Bauer(pane, true, s, 2, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][3] = (new Bauer(pane, true, s, 3, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][4] = (new Bauer(pane, true, s, 4, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][5] = (new Bauer(pane, true, s, 5, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][6] = (new Bauer(pane, true, s, 6, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[6][7] = (new Bauer(pane, true, s, 7, 6, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][0] = (new Turm(pane, true, s, 0, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][7] = (new Turm(pane, true, s, 7, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][1] = (new Springer(pane, true, s, 1, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][6] = (new Springer(pane, true, s, 6, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][2] = (new Läufer(pane, true, s, 2, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][5] = (new Läufer(pane, true, s, 5, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][3] = (new Königin(pane, true, s, 3, 7, spv, spv.zugverwaltung));
+        spv.zugverwaltung.figuren[7][4] = (new König(pane, true, s, 4, 7, spv, spv.zugverwaltung));
 
 
         pane.setOnMouseClicked(event -> {
             int clickedRow = (int) (event.getY() / s);
             int clickedCol = (int) (event.getX() / s);
-            Figur selectedFigur = spv.figuren[clickedRow][clickedCol];
+            Figur selectedFigur = spv.zugverwaltung.figuren[clickedRow][clickedCol];
 
-            if (selectedFigur != null && selectedFigur.isWhite == spv.whitePlays) {
+            if (selectedFigur != null && selectedFigur.isWhite == spv.zugverwaltung.whitePlays) {
                 // Clear previous highlights
                 clearHighlights();
 

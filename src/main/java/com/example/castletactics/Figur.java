@@ -19,6 +19,7 @@ public abstract class Figur extends Rectangle{
 	private boolean lebt = true;
 	private final Rectangle me = this;
 	protected final Spielverwaltung spv;
+	protected final Zugverwaltung zugverwaltung;
 
 	public abstract List<predict> getPossibleMoves();
 
@@ -49,7 +50,7 @@ public abstract class Figur extends Rectangle{
 
 
 
-	protected Figur(GridPane pane, boolean isWhite, String path, int side, int col, int row, Spielverwaltung spv) {
+	protected Figur(GridPane pane, boolean isWhite, String path, int side, int col, int row, Spielverwaltung spv, Zugverwaltung zugverwaltung) {
 		super(side,side,side,side);
 		this.isWhite = isWhite;
 		//blank final
@@ -57,6 +58,7 @@ public abstract class Figur extends Rectangle{
 		this.col = col;
 		this.row = row;
 		this.spv = spv;
+		this.zugverwaltung = zugverwaltung;
 		Image image1 = new Image(path,side,side,false,false);
 		ImagePattern imagePattern = new ImagePattern(image1);
 		this.setFill(imagePattern);
@@ -103,7 +105,7 @@ public abstract class Figur extends Rectangle{
 					/* allow for moving */
 					event.acceptTransferModes(TransferMode.MOVE);
 
-					spv.zumSchmeißen = (Figur) event.getGestureTarget();
+					zugverwaltung.zumSchmeißen = (Figur) event.getGestureTarget();
 					success = true;
 				}
 				event.setDropCompleted(success);
@@ -118,27 +120,27 @@ public abstract class Figur extends Rectangle{
 			if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Figur) {
 
-				spv.derSchmeißende = (Figur) event.getGestureSource();
+				zugverwaltung.derSchmeißende = (Figur) event.getGestureSource();
 				int srcRow = ((Figur) event.getGestureSource()).row;
 				int srcCol = ((Figur) event.getGestureSource()).col;
 				int destRow = ((Figur) event.getGestureTarget()).row;
 				int destCol = ((Figur) event.getGestureTarget()).col;
 
-				if (event.getGestureSource() instanceof Bauer && spv.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol)) {
+				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol)) {
 					move(destRow, destCol);
-				} else if (spv.zugPrüfen()) {
+				} else if (zugverwaltung.zugPrüfen()) {
 					move(destRow, destCol);
 				}
 			} else if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Rectangle
 					&& event.getGestureSource() instanceof Figur
-					&& ((Figur) event.getGestureSource()).isWhite == spv.whitePlays) {
+					&& ((Figur) event.getGestureSource()).isWhite == zugverwaltung.whitePlays) {
 				int destRow = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
 				int destCol = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
-				if (event.getGestureSource() instanceof Bauer && spv.enPassantPrüfen((Bauer) event.getGestureSource(), destRow, destCol)) {
+				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), destRow, destCol)) {
 					move(destRow, destCol);
 				}
-				spv.enPassantKandidat = this;
+				zugverwaltung.enPassantKandidat = this;
 
 				if (zugErlaubt(((Figur) event.getGestureSource()).row,
 						((Figur) event.getGestureSource()).col,
@@ -155,12 +157,12 @@ public abstract class Figur extends Rectangle{
 			}
 			me.setVisible(true);
 
-			System.out.print("Runde:" + spv.round + "\t Spieler:");
-			System.out.println(spv.whitePlays ? "Weiss" : "Schwarz");
+			System.out.print("Runde:" + zugverwaltung.runde + "\t Spieler:");
+			System.out.println(zugverwaltung.whitePlays ? "Weiss" : "Schwarz");
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
-					if(spv.figuren[i][j] != null) {
-						switch (spv.figuren[i][j].getClass().getSimpleName()) {
+					if(zugverwaltung.figuren[i][j] != null) {
+						switch (zugverwaltung.figuren[i][j].getClass().getSimpleName()) {
 						case "Bauer" -> System.out.print('B');
 						case "Turm" -> System.out.print('T');
 						case "Läufer" -> System.out.print('L');
@@ -179,7 +181,7 @@ public abstract class Figur extends Rectangle{
 
 	public void schmeißen(GridPane pane)	{
 		me.setVisible(false);
-		spv.geschmissen.add(this);
+		zugverwaltung.geschmissen.add(this);
 		pane.getChildren().remove(me);
 	}
 
@@ -196,17 +198,17 @@ public abstract class Figur extends Rectangle{
 		System.out.println("Move to: " + destRow + ", " + destCol);
 		System.out.println("Move needed: " + (destRow != row || destCol != col));
 		if (destRow != row || destCol != col) {
-			spv.brett.textArea.appendText("Runde: " + spv.round + "\nMove:" + row + "," + col + " to " + destRow + "," + destCol + "\n");
-			spv.schmeißen(destRow, destCol);
+			spv.brett.textArea.appendText("Runde: " + zugverwaltung.runde + "\nMove:" + row + "," + col + " to " + destRow + "," + destCol + "\n");
+			zugverwaltung.schmeißen(destRow, destCol);
 			spv.brett.pane.getChildren().remove(me);
 			spv.brett.pane.add(me, destCol, destRow);
-			spv.figuren[destRow][destCol] = spv.figuren[row][col];
-			spv.figuren[row][col] = null;
+			zugverwaltung.figuren[destRow][destCol] = zugverwaltung.figuren[row][col];
+			zugverwaltung.figuren[row][col] = null;
 			row = destRow;
 			col = destCol;
-			moved = true;
-			spv.enPassantKandidat = this;
-			spv.zugende();
+			moved = true; //moved at least 1 time
+			zugverwaltung.enPassantKandidat = this;
+			zugverwaltung.zugende();
 		}
 	}
 }

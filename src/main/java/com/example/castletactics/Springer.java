@@ -5,8 +5,8 @@ import javafx.scene.layout.GridPane;
 import java.util.List;
 
 public class Springer extends Figur {
-	Springer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv){
-		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-knight-white.png" : "file:./src/main/resources/img/chess-knight-black.png", side, col, row, spv);
+	Springer(GridPane pane, boolean isWhite, int side, int col, int row, Spielverwaltung spv, Zugverwaltung zugverwaltung){
+		super(pane, isWhite, isWhite ? "file:./src/main/resources/img/chess-knight-white.png" : "file:./src/main/resources/img/chess-knight-black.png", side, col, row, spv, zugverwaltung);
 	}
 
 
@@ -22,8 +22,8 @@ public class Springer extends Figur {
 
 		// Checking the knight's move patterns
 		if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
-			if (spv.figuren[rowDest][colDest] == null) return true; // Leeres Feld
-			else return this.isWhite != spv.figuren[rowDest][colDest].isWhite; // Gegner Feld
+			if (zugverwaltung.figuren[rowDest][colDest] == null) return true; // Leeres Feld
+			else return this.isWhite != zugverwaltung.figuren[rowDest][colDest].isWhite; // Gegner Feld
 		}
 		// The move is not allowed
 		return false;
