@@ -31,6 +31,11 @@ public class Zugverwaltung {
         return false;
     }
 
+    public boolean rochadePrüfen() {
+        //TODO: zugvorhersage & schach
+        return false;
+    }
+
     /**
      * This function is intended to only be called once per play-draw
      * @return
