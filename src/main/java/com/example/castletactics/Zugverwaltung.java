@@ -13,6 +13,7 @@ public class Zugverwaltung {
     Figur[][] figuren;
     ArrayList<Figur> geschmissen;
     private Spielverwaltung spv;
+    Netzwerk netzwerk = new Netzwerk();
 
     public Zugverwaltung(Spielverwaltung spv){
         figuren = new Figur[8][8];
@@ -75,7 +76,9 @@ public class Zugverwaltung {
                 success = true;
             }
         }
+        if(!derSchmeißende.isWhite) {
 
+        }
         //TODO: Rochade
         return success;
     }
