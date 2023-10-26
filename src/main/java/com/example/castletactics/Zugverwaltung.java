@@ -12,8 +12,9 @@ public class Zugverwaltung {
     public Figur enPassantKandidat = null;
     Figur[][] figuren;
     ArrayList<Figur> geschmissen;
-    private Spielverwaltung spv;
-    Netzwerk netzwerk = new Netzwerk();
+    private final Spielverwaltung spv;
+    Netzwerk netzwerk;
+    public boolean netzwerkWeiß; // ist es netzwekspiel und bin ich weiß? --> hat nur effekt, wenn ich netzwerk != null
 
     public Zugverwaltung(Spielverwaltung spv){
         figuren = new Figur[8][8];
@@ -57,6 +58,14 @@ public class Zugverwaltung {
         return false;
     }
 
+    boolean preMoveCheck(Figur derSchmeißende) {
+        if(netzwerk != null && netzwerkWeiß != derSchmeißende.isWhite) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public boolean move(int row, int col, int rowDest, int colDest) {
         derSchmeißende = figuren[row][col];
         zumSchmeißen = figuren[rowDest][colDest];
@@ -76,8 +85,8 @@ public class Zugverwaltung {
                 success = true;
             }
         }
-        if(!derSchmeißende.isWhite) {
-
+        if(netzwerk != null) {
+            spv.sendMove("Figur", row, col, rowDest, colDest);
         }
         //TODO: Rochade
         return success;

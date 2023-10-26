@@ -126,11 +126,11 @@ public abstract class Figur extends Rectangle{
 				int srcCol = ((Figur) event.getGestureSource()).col;
 				int destRow = ((Figur) event.getGestureTarget()).row;
 				int destCol = ((Figur) event.getGestureTarget()).col;
-
+				if (!zugverwaltung.preMoveCheck(zugverwaltung.derSchmeißende)) { event.consume(); return; }
 				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol)) {
-					move(destRow, destCol);
+					checkMove(destRow, destCol);
 				} else if (zugverwaltung.zugPrüfen()) {
-					move(destRow, destCol);
+					checkMove(destRow, destCol);
 				}
 			} else if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Rectangle
@@ -139,7 +139,7 @@ public abstract class Figur extends Rectangle{
 				int destRow = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
 				int destCol = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
 				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), destRow, destCol)) {
-					move(destRow, destCol);
+					checkMove(destRow, destCol);
 				}
 				zugverwaltung.enPassantKandidat = this;
 
@@ -147,7 +147,7 @@ public abstract class Figur extends Rectangle{
 						((Figur) event.getGestureSource()).col,
 						GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
 						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
-					move(GridPane.getRowIndex(((Rectangle) event.getGestureTarget())), GridPane.getColumnIndex(((Rectangle) event.getGestureTarget())));
+					checkMove(GridPane.getRowIndex(((Rectangle) event.getGestureTarget())), GridPane.getColumnIndex(((Rectangle) event.getGestureTarget())));
 
 					pane.getChildren().remove((Rectangle) event.getGestureSource());
 					pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
@@ -177,6 +177,9 @@ public abstract class Figur extends Rectangle{
 				System.out.println();
 			}
 			event.consume();
+			if (zugverwaltung.netzwerk != null) {
+				zugverwaltung.netzwerk.empfangen();
+			}
 		});
 	}
 
@@ -193,6 +196,10 @@ public abstract class Figur extends Rectangle{
 	}
 
 	public boolean hasMovedOnce(){ return moved; }
+
+	public void checkMove(int destRow,int  destCol){
+		zugverwaltung.move(row, col, destRow, destCol);
+	}
 
 	public void move(int destRow, int destCol){
 		System.out.println("Move from: " + row + ", " + col);

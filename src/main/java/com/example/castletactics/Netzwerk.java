@@ -50,12 +50,13 @@ public class Netzwerk {
         try {
             pr = new PrintWriter(s.getOutputStream());
             pr.println(str);
-            pr.flush();
+            //pr.flush();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
     public String empfangen(){
+        
         try {
             String str = bf.readLine();
             System.out.println("server: " + str);

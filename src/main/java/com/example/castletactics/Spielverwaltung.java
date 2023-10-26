@@ -39,6 +39,25 @@ public class Spielverwaltung extends Application{
 		}
 	}
 
+	public void serverStarten (){
+		zugverwaltung.netzwerk = new Netzwerk();
+		zugverwaltung.netzwerkWeiß = true;
+	}
+
+	public void clientStarten(String strIP){
+		int[] IP = new int[4];
+		Pattern pattern = Pattern.compile("(\\d{0,3}).(\\d{0,3}).(\\d{0,3}).(\\d{0,3})"); //z.B. "Bauer von [1,2] nach [2, 3]"
+		Matcher matcher = pattern.matcher(strIP);
+		if (matcher.find()) { // Match gefunden
+			IP[0] = Integer.parseInt(matcher.group(1));
+			IP[1] = Integer.parseInt(matcher.group(2));
+			IP[2] = Integer.parseInt(matcher.group(3));
+			IP[3] = Integer.parseInt(matcher.group(4));
+		}
+		zugverwaltung.netzwerk = new Netzwerk(IP);
+		zugverwaltung.netzwerkWeiß = false;
+	}
+
 	public static void main(String[] args) {
 		launch();
 		//new Spielverwaltung();
@@ -47,10 +66,12 @@ public class Spielverwaltung extends Application{
 	//TODO: Anbinden
 	public void sendMove(String typ, int row, int col, int rowDest, int colDest) {
 		String s = typ + " von [" + row + "," + col + "] nach [" + rowDest + "," + colDest + "]";
-		//senden...
+		zugverwaltung.netzwerk.senden(s);
+		System.out.println("Senden: " + s);
 	}
 
 	public boolean receiveMove(String move) {
+		System.out.println("Erhalten: " + move);
 		Pattern pattern = Pattern.compile("^(\\w*).*?\\[(\\d)[,;|] ?(\\d)] (?:nach|to) \\[(\\d)[,;|] ?(\\d)]"); //z.B. "Bauer von [1,2] nach [2, 3]"
 		Matcher matcher = pattern.matcher(move);
 		if (matcher.find()) { // Match gefunden
