@@ -26,9 +26,11 @@ public class Tactics extends Application {
         spielbrettIP.setPromptText("Hier die IP-Adresse");
         //spielbrettIP.setOnAction(l->);
         Button spielbrettIPBTN1 = new Button("Local");
-        Button spielbrettIPBTN2 = new Button("LAN");
+        Button spielbrettIPBTN2 = new Button("LAN Host");
+        Button spielbrettIPBTN3 = new Button("LAN Join");
         //spielbrettIPBTN1.setOnAction();
         //spielbrettIPBTN2.setOnAction();
+        //spielbrettIPBTN3.setOnAction();
         root.getChildren().addAll( spielbrettBTN,spielbrettIP,spielbrettIPBTN1,spielbrettIPBTN2); // Elemente werden der VBox hinzugefügt
 
         scene.getStylesheets().add("/style.css");
