@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Netzwerk.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;terrat0r&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="da61255a-309f-458c-a7fa-c60c61fd3a60" />
+        <option name="url" value="https://github.com/terrat0r/CastleTactics.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,16 +62,17 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last.edited.regexp&quot;: &quot;Bauer von [1, 2] nach [2, 3]&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;0d570cb2-96df-43cc-80da-7f777e6d0afe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -90,7 +104,7 @@
       <workItem from="1695244924381" duration="2597000" />
       <workItem from="1697277525711" duration="49000" />
       <workItem from="1697277603493" duration="9674000" />
-      <workItem from="1697798039600" duration="2514000" />
+      <workItem from="1698317155034" duration="69000" />
     </task>
     <task id="LOCAL-00001" summary="Springer vervollständigt">
       <option name="closed" value="true" />
@@ -140,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697292697226</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Erweiterung Spielmenü für Local und Lan">
+      <option name="closed" value="true" />
+      <created>1698315336165</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698315336165</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +177,8 @@
     <MESSAGE value="GROSSES UPDATE: Runden-Und Zugverwaltung in Neue Klasse ausgelagert." />
     <MESSAGE value="Empfängermethode eingebaut" />
     <MESSAGE value="Zugverwaltung erweitert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zugverwaltung erweitert" />
+    <MESSAGE value="Erweiterung Spielmenü für Local und Lan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Erweiterung Spielmenü für Local und Lan" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

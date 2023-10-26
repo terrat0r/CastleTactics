@@ -5,23 +5,33 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
 public class Tactics extends Application {
-    final Group root;
     final Scene scene;
     final Button spielbrettBTN;
 
     public Tactics(Spielverwaltung spv)
     {
-        root = new Group();
+        VBox root = new VBox(); // Vertikales Layout-Container
         scene = new Scene(root);
 
         spielbrettBTN = new Button("Spielbrett öffnen");
         spielbrettBTN.setOnAction(l-> spv.fensterWechseln("Schach"));
-        root.getChildren().add(spielbrettBTN);
+        TextField spielbrettIP = new TextField();
+        spielbrettIP.setPromptText("Hier die IP-Adresse");
+        //spielbrettIP.setOnAction(l->);
+        Button spielbrettIPBTN1 = new Button("Local");
+        Button spielbrettIPBTN2 = new Button("LAN Host");
+        Button spielbrettIPBTN3 = new Button("LAN Join");
+        //spielbrettIPBTN1.setOnAction();
+        //spielbrettIPBTN2.setOnAction();
+        //spielbrettIPBTN3.setOnAction();
+        root.getChildren().addAll( spielbrettBTN,spielbrettIP,spielbrettIPBTN1,spielbrettIPBTN2); // Elemente werden der VBox hinzugefügt
 
         scene.getStylesheets().add("/style.css");
     }
@@ -31,7 +41,7 @@ public class Tactics extends Application {
         //Scene wird erstellt
         stage.setScene(scene);
         stage.setTitle("Castle Tactics");
-        stage.setResizable(false);
+        stage.setResizable(true);
         //stage.setFullScreen(true);
         stage.show();
         //stage.setHeight(100);
