@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="786622c8-56a0-4a15-950c-9464fa1b0cba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielbrett.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +139,7 @@
       <workItem from="1697277525711" duration="49000" />
       <workItem from="1697277603493" duration="9674000" />
       <workItem from="1698317155034" duration="69000" />
+      <workItem from="1699091030386" duration="4048000" />
     </task>
     <task id="LOCAL-00001" summary="Springer vervollständigt">
       <option name="closed" value="true" />
@@ -194,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698315336165</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Progressindicator hinzugefügt">
+      <option name="closed" value="true" />
+      <created>1698913195105</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698913195105</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +221,8 @@
     <MESSAGE value="Empfängermethode eingebaut" />
     <MESSAGE value="Zugverwaltung erweitert" />
     <MESSAGE value="Erweiterung Spielmenü für Local und Lan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erweiterung Spielmenü für Local und Lan" />
+    <MESSAGE value="Progressindicator hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progressindicator hinzugefügt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -28,6 +28,32 @@ public class Tactics extends Application {
         lokalSpielenBTN.setOnAction(l-> spv.fensterWechseln("Schach"));
         TextField spielbrettIPTF = new TextField();
         spielbrettIPTF.setPromptText("Hier die IP-Adresse");
+        spielbrettIPTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d{0,3}(\\.\\d{0,3}){0,3}")) {
+                spielbrettIPTF.setText(oldValue);
+            } else {
+                String[] blocks = newValue.split("\\.");
+                boolean valid = true;
+                for (String block : blocks) {
+                    try {
+                        int value = Integer.parseInt(block);
+                        if (value < 0 || value > 255) {
+                            valid = false;
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        valid = false;
+                        break;
+                    }
+                }
+                if (!valid) {
+                    spielbrettIPTF.setText(oldValue);
+                }
+            }
+        });
+
+
+
         //spielbrettIPTF.setOnAction(l->);
         Button lanJoinBTN = new Button("Lan Join");
         Button lanHostBTN = new Button("LAN Host");
@@ -44,8 +70,16 @@ public class Tactics extends Application {
         });
         root.getChildren().addAll(lokalSpielenBTN,spielbrettIPTF,lanJoinBTN,lanHostBTN); // Elemente werden der VBox hinzugefügt
         Pane.getChildren().add(root);
+        //Styling nodes
+        lokalSpielenBTN.setStyle("-fx-background-color: A37754FF; -fx-text-fill: white;");
+        lanJoinBTN.setStyle("-fx-background-color: A37754FF; -fx-text-fill: white;");
+        lanHostBTN.setStyle("-fx-background-color: A37754FF; -fx-text-fill: white;");
+        spielbrettIPTF.setStyle("-fx-font: normal bold 20px 'serif'");
+        root.setStyle("-fx-background-color: F3EBD7FF");
         scene = new Scene(Pane);
-        scene.getStylesheets().add("/style.css");
+
+
+
     }
     @Override
     public void start(Stage stage) {
