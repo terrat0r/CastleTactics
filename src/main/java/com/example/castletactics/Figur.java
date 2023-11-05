@@ -66,7 +66,7 @@ public abstract class Figur extends Rectangle{
 		pane.add(me,col,row);
 
 		this.setOnDragDetected(event -> {
-			/* Figur wird geklicked und gezogen (drag start) */
+			/* Figur wird geklicked und gezogen (drag Start) */
 			Dragboard db = me.startDragAndDrop(TransferMode.MOVE);
 
 			/* Put a string on a dragboard */

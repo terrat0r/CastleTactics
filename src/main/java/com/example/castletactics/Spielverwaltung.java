@@ -58,7 +58,7 @@ public class Spielverwaltung extends Application{
 		zugverwaltung.netzwerkWeiß = false;
 	}
 
-	public static void main(String[] args) {
+	public static void oldMain(String[] args) {
 		launch();
 		//new Spielverwaltung();
 	}
