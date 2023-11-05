@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Netzwerk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Netzwerk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Spielverwaltung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Tactics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/castletactics/Zugverwaltung.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +67,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last.edited.regexp&quot;: &quot;Bauer von [1, 2] nach [2, 3]&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/elblorenz32&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,7 +75,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -111,6 +110,10 @@
       <workItem from="1698317155034" duration="69000" />
       <workItem from="1698333845002" duration="95000" />
       <workItem from="1698333985602" duration="4659000" />
+      <workItem from="1698361574194" duration="71000" />
+      <workItem from="1698863194217" duration="2705000" />
+      <workItem from="1698865909179" duration="1401000" />
+      <workItem from="1698867634946" duration="1135000" />
     </task>
     <task id="LOCAL-00001" summary="Springer vervollständigt">
       <option name="closed" value="true" />
@@ -168,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698315336165</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Netzwerkkommunikation v0">
+      <option name="closed" value="true" />
+      <created>1698361638439</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698361638439</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,15 +195,16 @@
     <MESSAGE value="Empfängermethode eingebaut" />
     <MESSAGE value="Zugverwaltung erweitert" />
     <MESSAGE value="Erweiterung Spielmenü für Local und Lan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erweiterung Spielmenü für Local und Lan" />
+    <MESSAGE value="Netzwerkkommunikation v0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Netzwerkkommunikation v0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/castletactics/Figur.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/castletactics/Netzwerk.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

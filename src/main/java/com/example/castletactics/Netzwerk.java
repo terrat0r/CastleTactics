@@ -36,9 +36,13 @@ public class Netzwerk {
             return;
         }
     }
+
     public Netzwerk(int[]IP) {
         try {
             s = new Socket(IP[0] + "." + IP[1] + "." + IP[2] + "." + IP[3], 4998);
+
+            in = new InputStreamReader(s.getInputStream());
+            bf = new BufferedReader(in);
             out = new OutputStreamWriter(s.getOutputStream());
             bw = new BufferedWriter(out);
         } catch(IOException e) {
@@ -46,17 +50,23 @@ public class Netzwerk {
             return;
         }
     }
+
+
     public void senden(String str) {
         try {
+            System.err.println("Print");
             pr = new PrintWriter(s.getOutputStream());
+            System.err.println("Print");
             pr.println(str);
+            System.err.println("Print");
             //pr.flush();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
+
     public String empfangen(){
-        
+
         try {
             String str = bf.readLine();
             System.out.println("server: " + str);

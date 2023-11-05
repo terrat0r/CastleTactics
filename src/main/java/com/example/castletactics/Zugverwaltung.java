@@ -58,7 +58,8 @@ public class Zugverwaltung {
         return false;
     }
 
-    boolean preMoveCheck(Figur derSchmeißende) {
+    boolean preMoveCheck() {
+        System.out.println("Pre-Move-Check: Netzwerk:" + (netzwerk != null) + "\tWeißabgleich: " + (netzwerkWeiß == derSchmeißende.isWhite) + "\tSpielerfarbe: " + (whitePlays?"Weiß":"Schwarz"));
         if(netzwerk != null && netzwerkWeiß != derSchmeißende.isWhite) {
             return false;
         } else {

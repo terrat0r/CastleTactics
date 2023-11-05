@@ -118,28 +118,30 @@ public abstract class Figur extends Rectangle{
 		this.setOnDragDone(event -> {
 			/* Sicht: Figur, die fallengelassen wird */
 			boolean zug = false;
+			boolean zugMöglich = false;
 			if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Figur) {
-
 				zugverwaltung.derSchmeißende = (Figur) event.getGestureSource();
 				int srcRow = ((Figur) event.getGestureSource()).row;
 				int srcCol = ((Figur) event.getGestureSource()).col;
 				int destRow = ((Figur) event.getGestureTarget()).row;
 				int destCol = ((Figur) event.getGestureTarget()).col;
-				if (!zugverwaltung.preMoveCheck(zugverwaltung.derSchmeißende)) { event.consume(); return; }
+				if (!zugverwaltung.preMoveCheck()) { System.out.println("Pre-Move check failed"); event.consume(); return; }
 				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), srcRow, srcCol)) {
-					checkMove(destRow, destCol);
+					zugverwaltung.move(srcRow, srcCol, destRow, destCol);
 				} else if (zugverwaltung.zugPrüfen()) {
-					checkMove(destRow, destCol);
+					zugverwaltung.move(srcRow, srcCol, destRow, destCol);
 				}
 			} else if (event.getGestureTarget() != null
 					&& event.getGestureTarget() instanceof Rectangle
 					&& event.getGestureSource() instanceof Figur
 					&& ((Figur) event.getGestureSource()).isWhite == zugverwaltung.whitePlays) {
+				int srcRow = ((Figur) event.getGestureSource()).row;
+				int srcCol = ((Figur) event.getGestureSource()).col;
 				int destRow = GridPane.getRowIndex((Rectangle) event.getGestureTarget());
 				int destCol = GridPane.getColumnIndex((Rectangle) event.getGestureTarget());
 				if (event.getGestureSource() instanceof Bauer && zugverwaltung.enPassantPrüfen((Bauer) event.getGestureSource(), destRow, destCol)) {
-					checkMove(destRow, destCol);
+					zugverwaltung.move(srcRow, srcCol, destRow, destCol);
 				}
 				zugverwaltung.enPassantKandidat = this;
 
@@ -147,7 +149,7 @@ public abstract class Figur extends Rectangle{
 						((Figur) event.getGestureSource()).col,
 						GridPane.getRowIndex(((Rectangle) event.getGestureTarget())),
 						GridPane.getColumnIndex((Rectangle) event.getGestureTarget()))) {
-					checkMove(GridPane.getRowIndex(((Rectangle) event.getGestureTarget())), GridPane.getColumnIndex(((Rectangle) event.getGestureTarget())));
+					zugverwaltung.move(srcRow, srcCol, GridPane.getRowIndex(((Rectangle) event.getGestureTarget())), GridPane.getColumnIndex(((Rectangle) event.getGestureTarget())));
 
 					pane.getChildren().remove((Rectangle) event.getGestureSource());
 					pane.add((Rectangle) event.getGestureSource(), GridPane.getColumnIndex((Rectangle) event.getGestureTarget()), GridPane.getRowIndex((Rectangle) event.getGestureTarget()));
@@ -197,9 +199,6 @@ public abstract class Figur extends Rectangle{
 
 	public boolean hasMovedOnce(){ return moved; }
 
-	public void checkMove(int destRow,int  destCol){
-		zugverwaltung.move(row, col, destRow, destCol);
-	}
 
 	public void move(int destRow, int destCol){
 		System.out.println("Move from: " + row + ", " + col);
