@@ -65,8 +65,8 @@ public class Tactics extends Application {
             // Grey Background
             root.setDisable(true);
             Pane.getChildren().add(box);
-            //spv.serverStarten();
-            //spv.fensterWechseln("Schach");
+            spv.serverStarten();
+            spv.fensterWechseln("Schach");
         });
         root.getChildren().addAll(lokalSpielenBTN,spielbrettIPTF,lanJoinBTN,lanHostBTN); // Elemente werden der VBox hinzugefügt
         Pane.getChildren().add(root);
