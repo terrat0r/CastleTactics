@@ -122,11 +122,16 @@ public class Spielbrett extends Application {
             }
         });
 
-        //Button Hauptmenü
+        //Hauptmenü
         textArea = new TextArea();
         pane.add(textArea,8,0,1,8);
         pane.add(schliessenBTN, 0, 8, 2, 1);
         textArea.setEditable(false);
+        //Styling nodes
+        schliessenBTN.setStyle("-fx-background-color: A37754FF; -fx-text-fill: white;");
+        textArea.setStyle("-fx-font: normal bold 15px 'serif';-fx-max-width: 150px; -fx-max-height: 1000px;");
+
+
         scene = new Scene(pane);
         schliessenBTN.requestFocus();
 
